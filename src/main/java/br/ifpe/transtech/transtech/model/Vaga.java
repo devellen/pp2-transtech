@@ -1,10 +1,20 @@
 package br.ifpe.transtech.transtech.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
+@Entity
 public class Vaga {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codVaga;
     private String nome;
     private String descricao;
     private Endereco endereco;
+    @ManyToOne
+    private Empresa empresa;
     
     public Integer getCodVaga() {
         return codVaga;

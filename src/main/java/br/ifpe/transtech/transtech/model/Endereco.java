@@ -1,5 +1,8 @@
 package br.ifpe.transtech.transtech.model;
 
+import jakarta.persistence.Embeddable;
+
+@Embeddable
 public class Endereco {
     private String rua;
     private String bairro;

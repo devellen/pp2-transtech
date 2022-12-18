@@ -13,6 +13,8 @@ public class Empresa {
     private String cnpj;
     private String email;
     private Endereco endereco;
+    private String senha;
+
 
     public Integer getCodigo() {
         return codigo;
@@ -43,5 +45,11 @@ public class Empresa {
     }
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+    public String getSenha() {
+        return senha;
+    }
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }

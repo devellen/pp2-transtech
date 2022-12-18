@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
     <title>Cadastro de Empresa</title>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -47,5 +49,46 @@
             </nav>
         </header>
     </div>
+
+    <form action="/salvarEmpresa" th:object="${empresa}" method="post">
+        <input type="hidden" th:field="*{codigo}">
+        <div>
+            <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
+        </div>
+
+        <div>
+            <input type="text" th:field="*{cnpj}" id="cnpj" placeholder="CNPJ">
+        </div>
+
+        <div>
+            <input type="text" th:field="*{Endereco.cep}" id="Endereco.cep"
+                placeholder="CEP">
+           <input type="text" th:field="*{Endereco.rua}" id="Endereco.rua"
+                placeholder="Endereço">
+           <input type="text" th:field="*{Endereco.numero}" id="Endereco.numero" placeholder="Nº">
+        </div>
+
+        <div>
+        <input type="text" th:field="*{Endereco.bairro}" id="Endereco.bairro"
+                placeholder="Bairro">
+           <input type="text" th:field="*{Endereco.cidade}" id="Endereco.cidade"
+                placeholder="Cidade">
+            <input type="text" th:field="*{Endereco.estado}" id="Endereco.estado"
+                placeholder="Estado">
+        </div>
+
+        <div>
+            <input type="email" th:field="*{email}" id="email" placeholder="Email">
+        </div>
+
+        <div>
+            <input type="password" th:field="*{senha}" id="senha" placeholder="Senha">
+        </div>
+
+        <div>
+            <button type="submit">Cadastrar</button>
+        </div>
+    </form>
 </body>
+
 </html>

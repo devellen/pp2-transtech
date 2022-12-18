@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
     <title>Cadastro de Usuário</title>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -47,5 +49,33 @@
             </nav>
         </header>
     </div>
+
+    <form action="/salvarUsuario" th:object="${usuario}" method="post">
+        <input type="hidden" th:field="*{codUsuario}">
+        <div>
+            <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
+        </div>
+
+        <div>
+            <input type="date" th:field="*{dataNascimento}" id="dataNascimento">
+        </div>
+
+        <div>
+            <input type="text" th:field="*{telefone}" id="telefone" placeholder="Telefone">
+        </div>
+
+        <div>
+            <input type="email" th:field="*{email}" id="email" placeholder="Email">
+        </div>
+
+        <div>
+            <input type="password" th:field="*{senha}" id="senha" placeholder="Senha">
+        </div>
+
+        <div>
+            <button type="submit">Cadastrar</button>
+        </div>
+    </form>
 </body>
+
 </html>

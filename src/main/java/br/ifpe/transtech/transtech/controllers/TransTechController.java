@@ -19,6 +19,16 @@ public class TransTechController {
     @Autowired
     private EmpresaDAO daoEmp;
 
+    @GetMapping("/entrarEmp")
+        public String entrarEmp(){
+            return "entrarEmp";
+        }
+
+    @GetMapping("/entrarUsu")
+        public String entrarUsu(){
+            return "entrarUsu";
+        }
+
     @GetMapping("/index")
     public String index() {
         return "index";
@@ -43,13 +53,13 @@ public class TransTechController {
     public String salvarUsuario(Usuario usuario) {
 		daoUsu.save(usuario);
 		System.out.println(usuario);
-		return "index";
+		return "#";
 	}
 
     @PostMapping("/salvarEmpresa")
     public String salvarEmpresa(Empresa empresa) {
 		daoEmp.save(empresa);
 		System.out.println(empresa);
-		return "index";
+		return "#";
 	}
 }

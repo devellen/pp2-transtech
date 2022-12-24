@@ -41,6 +41,16 @@ public class TransTechController {
         return "quemSomos";
     }
 
+    @GetMapping("/homeUsuario")
+    public String homeUsuario(){
+        return "homeUsuario";
+    }
+    
+    @GetMapping("/homeEmpresa")
+    public String homeEmpresa(){
+        return "homeEmpresa";
+    }
+
     @GetMapping("/cadastroEmpresa")
     public String cadastroEmpresa(Empresa empresa) {
         return "cadastro-empresa";
@@ -70,22 +80,26 @@ public class TransTechController {
         Usuario usuario = this.daoUsu.findByEmailAndSenha(email, senha);
         if (usuario != null) {
             session.setAttribute("usuarioLogado", usuario);
-            return "redirect:/quemSomos";
+            return "redirect:/homeUsuario";
         } else {
             ra.addFlashAttribute("mensagemErro", "Usuário/senha inválidos");
             return "redirect:/";
         }
     }
-
     @PostMapping("/efetuarLoginEmpresa")
     public String efetuarLoginEmpresa(String email, String senha, RedirectAttributes ra, HttpSession session) {
         Empresa empresa = this.daoEmp.findByEmailAndSenha(email, senha);
         if (empresa != null) {
             session.setAttribute("empresaLogado", empresa);
-            return "redirect:/index";
+            return "redirect:/homeEmpresa";
         } else {
-            ra.addFlashAttribute("mensagemErro", "empresa/senha inválidos");
+            ra.addFlashAttribute("mensagemErro", "Empresa/senha inválidos");
             return "redirect:/";
         }
     }
+    @PostMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	} 
 }

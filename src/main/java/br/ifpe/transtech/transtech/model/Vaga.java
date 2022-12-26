@@ -12,7 +12,9 @@ public class Vaga {
     private Integer codVaga;
     private String nome;
     private String descricao;
-    private Endereco endereco;
+    private double salario;
+    private String horario;
+    private Cidade cidade;
     @ManyToOne
     private Empresa empresa;
     
@@ -34,10 +36,23 @@ public class Vaga {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    public Endereco getEndereco() {
-        return endereco;
-    }
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
+    
+    public double getSalario() {
+		return salario;
+	}
+	public void setSalario(double salario) {
+		this.salario = salario;
+	}
+	public String getHorario() {
+		return horario;
+	}
+	public void setHorario(String horario) {
+		this.horario = horario;
+	}
+	public Cidade getCidade() {
+		return cidade;
+	}
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
 }

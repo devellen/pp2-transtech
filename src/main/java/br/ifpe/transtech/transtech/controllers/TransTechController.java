@@ -10,6 +10,8 @@ import br.ifpe.transtech.transtech.model.Empresa;
 import br.ifpe.transtech.transtech.model.EmpresaDAO;
 import br.ifpe.transtech.transtech.model.Usuario;
 import br.ifpe.transtech.transtech.model.UsuarioDAO;
+import br.ifpe.transtech.transtech.model.Vaga;
+import br.ifpe.transtech.transtech.model.VagaDao;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -20,6 +22,9 @@ public class TransTechController {
 
     @Autowired
     private EmpresaDAO daoEmp;
+
+    @Autowired
+    private VagaDao daoVaga;
 
     @GetMapping("/entrarEmp")
     public String entrarEmp() {
@@ -45,11 +50,6 @@ public class TransTechController {
     public String homeUsuario(){
         return "homeUsuario";
     }
-    
-    @GetMapping("/homeEmpresa")
-    public String homeEmpresa(){
-        return "homeEmpresa";
-    }
 
     @GetMapping("/cadastroEmpresa")
     public String cadastroEmpresa(Empresa empresa) {
@@ -67,6 +67,8 @@ public class TransTechController {
         System.out.println(usuario);
         return "index";
     }
+
+   
 
     @PostMapping("/salvarEmpresa")
     public String salvarEmpresa(Empresa empresa) {
@@ -102,4 +104,22 @@ public class TransTechController {
 		session.invalidate();
 		return "redirect:/";
 	} 
+
+    @GetMapping("/homeEmpresa")
+    public String homeEmpresa() {
+        return "homeEmpresa";
+    }
+    
+    @GetMapping("/formEmpresa")
+    public String formEmpresa() {
+    	return "form-empresa";
+    }
+
+    @PostMapping("/salvarVaga")
+    public String salvarVaga(Vaga vaga) {
+    	daoVaga.save(vaga);
+        System.out.println(vaga);
+		return "homeEmpresa";
+    	
+    }
 }

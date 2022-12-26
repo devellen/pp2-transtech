@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
+    <title>Cadastro de Vagas</title>
+</head>
+<div class="pure-u-1 pure-u-md-1-3">
+
+			<h3>Preencha os dados para a inscrição</h3>
+			<form action="/salvarVaga" method="post" class="pure-form pure-form-stacked">
+				<fieldset>
+					Cargo: <input type="text" name="nome" placeholder="Cargo"
+						size="40"> <br /> Descricao: <input type="text" name="descricao"
+						placeholder="Descrição da vaga" size="30"> <br /> 
+						Salario:<input type="number" name="salrio"
+						placeholder="" size="40"><br />
+						 Horário: <input type="text" name="horario" 
+						placeholder="" size="30"> <br />
+						 Cidade <select name="cidade">
+						<option value="Recife">Recife</option>
+						<option value="Jaboatao">Jaboatão</option>
+						<option value="Camaragibe">Camaragibe</option>
+						<option value="SãoLourenço">São Lourenço da Mata</option>
+					   <option value="Paulista">Paulista</option>
+					   	<option value="Moreno">Moreno</option>
+					   	<option value="Itapissuma">Itapissuma</option>
+					   	<option value="Itamaracá">Itamaracá</option>
+						<option value="Cabo">Cabo</option>
+						<option value="Araçoiaba">Araçoiaba</option>
+						<option value="AbreuLima">Abreu e Lima</option>
+					</select> 
+					</select> <br />
+					<button type="submit" class="pure-button pure-button-primary">Realizar
+						Cadastro</button>
+					<button type="reset" class="pure-button">Limpar dados</button>
+				</fieldset>
+			</form>
+		</div>
+</body>
+</html>

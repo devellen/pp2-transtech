@@ -118,11 +118,11 @@
     <form action="/salvarEmpresa" th:object="${empresa}" method="post">
         <input type="hidden" th:field="*{codigo}">
         <div>
-            <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
+            <input type="text" th:field="*{nome}" id="nome" placeholder="Nome" required>
         </div>
 
         <div>
-            <input type="text" th:field="*{cnpj}" id="cnpj" placeholder="CNPJ">
+            <input type="text" th:field="*{cnpj}" id="cnpj" placeholder="CNPJ" >
         </div>
 
         <div>
@@ -138,11 +138,11 @@
         </div>
 
         <div>
-            <input type="email" th:field="*{email}" id="email" placeholder="Email">
+            <input type="email" th:field="*{email}" id="email" placeholder="Email" required>
         </div>
 
         <div>
-            <input type="password" th:field="*{senha}" id="senha" placeholder="Senha">
+            <input type="password" th:field="*{senha}" id="senha" placeholder="Senha" required>
         </div>
 
         <div>

@@ -14,13 +14,13 @@
 			<form action="/salvarVaga" method="post" class="pure-form pure-form-stacked">
 				<fieldset>
 					Cargo: <input type="text" name="nome" placeholder="Cargo"
-						size="40"> <br /> Descricao: <input type="text" name="descricao"
-						placeholder="Descrição da vaga" size="30"> <br /> 
-						Salario:<input type="number" name="salrio"
+						size="40" required> <br /> Descricao: <input type="text" name="descricao"
+						placeholder="Descrição da vaga" size="30" required> <br /> 
+						Salario:<input type="text" name="salrio"
 						placeholder="" size="40"><br />
-						 Horário: <input type="text" name="horario" 
+						 Horário: <input type="datetime" name="horario" 
 						placeholder="" size="30"> <br />
-						 Cidade <select name="cidade">
+						 Cidade <select name="cidade" required>
 						<option value="Recife">Recife</option>
 						<option value="Jaboatao">Jaboatão</option>
 						<option value="Camaragibe">Camaragibe</option>

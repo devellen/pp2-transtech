@@ -7,6 +7,168 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
     <title>Quem Somos</title>
+    <style>
+        #tela-principal {
+            background-image: linear-gradient(to bottom, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 100%);
+            margin: 0;
+        }
+
+        header {
+            position: relative;
+            top: 0;
+            height: auto;
+            width: 100%;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 60px;
+            width: 100%;
+            z-index: 1;
+            background-color: #FBF0F8;
+            box-shadow: 0px 3px 8px #615f5f8d;
+        }
+
+        nav:after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #logo {
+            width: 60px;
+            height: 60px;
+            margin-top: 0;
+            margin-left: -12%;
+        }
+
+        .nav-container ul {
+            float: right;
+            height: 100px;
+            line-height: 100px;
+            margin-top: -15px;
+        }
+
+        .nav-container ul li {
+            list-style: none;
+            float: left;
+            margin: 0 30px;
+        }
+
+        .nav-container li button {
+            text-decoration: none;
+            color: #666;
+            transition: .5s;
+            width: 154.31px;
+            height: 37.41px;
+            font-family: 'K2D', sans-serif;
+            font-size: 20px;
+            color: #FFAFCC;
+            background-color: #FBF0F8;
+            border: 3px solid #FFAFCC;
+            border-radius: 55px;
+        }
+
+        /*-----------------------------------------------------------*/
+
+        .nav-container #quem {
+            color: #A2D2FF;
+            border: 3px solid #A2D2FF;
+        }
+
+        .nav-container #entrar {
+            color: #F2F2F2;
+            background-color: #FFAFCC;
+            box-shadow: 0 4px 4px 0 #00000044;
+        }
+
+        .nav-container li button:hover {
+            color: #A2D2FF;
+        }
+
+        .logo2 {
+            margin-top: 8%;
+        }
+
+        .container {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .principal1 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 20px;
+            padding-right: 150px;
+        }
+
+        .principal2 button {
+            width: 250px;
+            height: 55px;
+            font-family: 'K2D', sans-serif;
+            font-size: 20px;
+            border-radius: 55px;
+        }
+
+        .principal2 #cadastro {
+            color: #F2F2F2;
+            border: #FFAFCC;
+            background-color: #FFAFCC;
+            box-shadow: 0 4px 4px 0 #00000044;
+        }
+
+        .principal2 #entrar2 {
+            color: #FFAFCC;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            background-color: #c3e2ff;
+            box-shadow: 0 4px 4px 0 #00000044;
+        }
+
+        .img {
+            width: 300px;
+            height: 200px;
+        }
+
+
+        #article1 {
+            margin-top: 10%;
+        }
+
+        #article2 {
+            margin-top: 10%;
+        }
+
+        #section3 {
+            margin-top: 15%;
+        }
+
+
+        .rodape {
+            margin-top: 10%;
+            border-top: 4px solid #A2D2FF;
+            font-family: 'K2D', sans-serif;
+            background-color: #d6e4fb;
+        }
+
+        .img2 {
+            width: 45px;
+            padding: 12px;
+        }
+
+        .img-bandeira {
+            width: 90%;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,23 +187,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/listarVagas">
                                 <button id="vagas">Vagas</button>
                             </a>
                         </li>
                         <li>
                             <a href="/quemSomos">
                                 <button id="quem">Quem Somos</button>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <button id="colabore">Colabore</button>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <button id="entrar">Entrar</button>
                             </a>
                         </li>
                     </ul>

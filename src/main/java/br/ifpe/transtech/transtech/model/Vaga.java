@@ -17,6 +17,18 @@ public class Vaga {
     private Cidade cidade;
     @ManyToOne
     private Empresa empresa;
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public String getDescricaoLimitada() {
+        return descricao.length()>10 ? descricao.substring(0, 10):descricao;
+    }
     
     public Integer getCodVaga() {
         return codVaga;

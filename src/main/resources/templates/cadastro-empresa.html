@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
     <style>
-                #tela-principal {
+        #tela-principal {
             background-image: linear-gradient(to bottom, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 100%);
             margin: 0;
         }
@@ -76,6 +76,10 @@
             border: 3px solid #FFAFCC;
             border-radius: 55px;
         }
+
+        form {
+            margin-top: 20%;
+        }
     </style>
     <title>Cadastro de Empresa</title>
 </head>
@@ -96,23 +100,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/listarVagas">
                                 <button id="vagas">Vagas</button>
                             </a>
                         </li>
                         <li>
                             <a href="/quemSomos">
                                 <button id="quem">Quem Somos</button>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <button id="colabore">Colabore</button>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <button id="entrar">Entrar</button>
                             </a>
                         </li>
                     </ul>
@@ -132,20 +126,15 @@
         </div>
 
         <div>
-            <input type="text" th:field="*{Endereco.cep}" id="Endereco.cep"
-                placeholder="CEP">
-           <input type="text" th:field="*{Endereco.rua}" id="Endereco.rua"
-                placeholder="Endereço">
-           <input type="text" th:field="*{Endereco.numero}" id="Endereco.numero" placeholder="Nº">
+            <input type="text" th:field="*{Endereco.cep}" id="Endereco.cep" placeholder="CEP">
+            <input type="text" th:field="*{Endereco.rua}" id="Endereco.rua" placeholder="Endereço">
+            <input type="text" th:field="*{Endereco.numero}" id="Endereco.numero" placeholder="Nº">
         </div>
 
         <div>
-        <input type="text" th:field="*{Endereco.bairro}" id="Endereco.bairro"
-                placeholder="Bairro">
-           <input type="text" th:field="*{Endereco.cidade}" id="Endereco.cidade"
-                placeholder="Cidade">
-            <input type="text" th:field="*{Endereco.estado}" id="Endereco.estado"
-                placeholder="Estado">
+            <input type="text" th:field="*{Endereco.bairro}" id="Endereco.bairro" placeholder="Bairro">
+            <input type="text" th:field="*{Endereco.cidade}" id="Endereco.cidade" placeholder="Cidade">
+            <input type="text" th:field="*{Endereco.estado}" id="Endereco.estado" placeholder="Estado">
         </div>
 
         <div>

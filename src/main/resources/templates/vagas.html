@@ -8,11 +8,12 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-        
+
 
         #tela-principal {
             background-image: linear-gradient(to bottom, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 100%);
-            margin: 0;
+            margin: 20%;
+
         }
 
         header {
@@ -104,7 +105,7 @@
         .container {
             display: flex;
             flex-flow: row nowrap;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
         }
 
@@ -136,7 +137,7 @@
             box-shadow: 0 4px 4px 0 #00000044;
         }
 
-        section{
+        section {
             margin-top: 20%;
         }
 
@@ -175,11 +176,13 @@
             width: 90%;
         }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <title>Entrar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
+    <title>Vagas</title>
 </head>
 
-<body>
+<body id="tela-principal">
     <div class="container">
         <header>
             <nav>
@@ -215,16 +218,29 @@
             <div>
                 <h1>Vagas Front-end</h1>
             </div>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body" th:each="vaga : ${lista}">
-                    <h5 class="card-title" th:text="${vaga.nome}">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted" th:text="${vaga.cidade}">Card subtitle</h6>
-                    <p class="card-text" th:text="${vaga.descricaoLimitada}"></p>
+
+
+
+            <div class=" container row">
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body" th:each="vaga : ${lista}">
+                            <h5 class="card-title" th:text="${vaga.nome}">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted" th:text="${vaga.cidade}">Card subtitle</h6>
+                            <p class="card-text" th:text="${vaga.descricaoLimitada}"></p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
-                <h3>Aqui está algumas sugestões de vagas para você!</h3>
-            </div>
+
+            
+        </div>
+
+
+        <div>
+            <h3>Aqui está algumas sugestões de vagas para você!</h3>
+        </div>
         </div>
     </section>
 

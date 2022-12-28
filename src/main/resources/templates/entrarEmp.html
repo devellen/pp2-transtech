@@ -9,12 +9,12 @@
         @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
     </style>
+    <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style-entrar.css">
     <title>Entrar</title>
     <style>
-        #tela-principal {
-            background-image: linear-gradient(to bottom, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 100%);
-            margin: 0;
+        body {
+            background-image: linear-gradient(to right, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 80%);
         }
 
         header {
@@ -82,99 +82,62 @@
             border-radius: 55px;
         }
 
-        /*-----------------------------------------------------------*/
-
-        .nav-container #home {
-            color: #A2D2FF;
-            border: 3px solid #A2D2FF;
-        }
-
-        .nav-container #entrar {
-            color: #F2F2F2;
-            background-color: #FFAFCC;
-            box-shadow: 0 4px 4px 0 #00000044;
-        }
-
         .nav-container li button:hover {
             color: #A2D2FF;
         }
 
-        .logo2 {
-            margin-top: 8%;
+        /*-----------------------------------------------------------*/
+
+        .field {
+            width: 400px;
+            height: 500px;
+            margin: 0px auto;
+            margin-top: 12%;
+            border-radius: 50px;
+            background-color: #fbf0f8bc;
+            border: none;
+            backface-visibility: visible;
         }
 
-        .container {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-around;
-            align-items: center;
+        .field #logo-cadastro {
+            width: 320px;
+            height: 54px;
+            margin-top: 30px;
         }
 
-        .principal1 {
+        .input-empresa {
+            border: none;
+            color: #f2f2f2;
+            background-color: #A2D2FF;
+            width: 270px;
+            height: 40px;
+            border-radius: 55px;
+            margin-top: 30px;
+            padding-left: 10px;
+        }
+
+        input::placeholder {
+            color: #F2F2F2;
             font-family: 'Nunito', sans-serif;
-            font-size: 20px;
-            padding-right: 150px;
+            font-size: 14px;
         }
 
-        .principal2 button {
-            width: 250px;
-            height: 55px;
+        .btn-entrar {
+            color: #F2F2F2;
+            background-color: #A2D2FF;
+            box-shadow: 0 4px 4px 0 #00000044;
+            border: none;
             font-family: 'K2D', sans-serif;
+            width: 154.31px;
+            height: 37.41px;
             font-size: 20px;
             border-radius: 55px;
+            margin-top: 30px;
         }
 
-        .principal2 #cadastro {
-            color: #F2F2F2;
-            border: #FFAFCC;
-            background-color: #FFAFCC;
-            box-shadow: 0 4px 4px 0 #00000044;
-        }
-
-        .principal2 #entrar2 {
-            color: #FFAFCC;
-            border: 3px solid rgba(255, 255, 255, 0.4);
-            background-color: #c3e2ff;
-            box-shadow: 0 4px 4px 0 #00000044;
-        }
-
-        fieldset {
-            margin-top: 20%;
-        }
-
-        .img {
-            width: 300px;
-            height: 200px;
-        }
-
-
-        #article1 {
-            margin-top: 10%;
-        }
-
-        #article2 {
-            margin-top: 10%;
-        }
-
-        #section3 {
-            margin-top: 15%;
-        }
-
-
-        .rodape {
-            margin-top: 10%;
-            border-top: 4px solid #A2D2FF;
+        h3 {
+            margin-bottom: -10px;
             font-family: 'K2D', sans-serif;
-            background-color: #d6e4fb;
-        }
-
-        .img2 {
-            width: 45px;
-            padding: 12px;
-        }
-
-        .img-bandeira {
-            width: 90%;
         }
     </style>
 </head>
@@ -213,14 +176,24 @@
     <section>
         <center>
             <fieldset class="field">
+                <img id="logo-cadastro" src="images/logo2.png" alt="">
                 <form action="/efetuarLoginEmpresa" method="post">
-                    Email: <input type="text" name="email" placeholder="Digite o seu e-mail" required/>
-                    Senha: <input type="password" name="senha" placeholder="Digite a sua senha" required />
-                    <button type="submit">Entrar</button>
+                    <div>
+                        <input type="text" name="email" class="input-empresa" placeholder="Digite o seu e-mail"
+                            required /> <br>
+                        <input type="password" name="senha" class="input-empresa" placeholder="Digite a sua senha"
+                            required />
+                    </div>
+                    <div>
+                        <button type="submit" class="btn-entrar">Entrar</button>
+                    </div>
                 </form>
+
+                <br>
+                <br><br>
                 <h3>AINDA NÃO TEM CONTA?</h3>
                 <a href="/cadastroEmpresa">
-                    <button id="entrar2">Cadastrar</button>
+                    <button id="entrar2" class="btn-entrar">Cadastrar</button>
                 </a>
                 </div>
                 <div>

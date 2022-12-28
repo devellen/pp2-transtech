@@ -8,6 +8,11 @@
     <link rel="stylesheet" type="text/css" src="../static/css/pagTeste.css">
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+    </style>
+
+    <style>
         #tela-principal {
             background-image: linear-gradient(to bottom, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 100%);
             margin: 0;
@@ -78,22 +83,15 @@
             border-radius: 55px;
         }
 
-        /*-----------------------------------------------------------*/
-
         .nav-container #home {
             color: #A2D2FF;
             border: 3px solid #A2D2FF;
         }
 
-        .nav-container #entrar {
-            color: #F2F2F2;
-            background-color: #FFAFCC;
-            box-shadow: 0 4px 4px 0 #00000044;
-        }
-
         .nav-container li button:hover {
             color: #A2D2FF;
         }
+        /*-----------------------------------------------------------*/
 
         .logo2 {
             margin-top: 8%;
@@ -124,13 +122,6 @@
             color: #F2F2F2;
             border: #FFAFCC;
             background-color: #FFAFCC;
-            box-shadow: 0 4px 4px 0 #00000044;
-        }
-
-        .principal2 #entrar2 {
-            color: #FFAFCC;
-            border: 3px solid rgba(255, 255, 255, 0.4);
-            background-color: #c3e2ff;
             box-shadow: 0 4px 4px 0 #00000044;
         }
 
@@ -166,6 +157,8 @@
         }
 
         .img-bandeira {
+            margin-bottom: 5%;
+            margin-left: 50%;
             width: 90%;
         }
     </style>
@@ -222,12 +215,12 @@
                 </div>
                 <div class="principal2">
                     <a href="/entrarUsu">
-                        <button id="entrar2">Entrar como usuário</button>
+                        <button id="cadastro">Entrar como usuário</button>
                     </a>
                     <br>
                     <br>
                     <a href="/entrarEmp">
-                        <button id="entrar2">Entrar como empresa</button>
+                        <button id="cadastro">Entrar como empresa</button>
                     </a>
                 </div>
             </div>
@@ -273,7 +266,7 @@
                     <img class="img2" src="images/tt.png" alt="">
                     <center>
                         <br>
-                        <img class="img-bandeira" src="images/bandeira (1).png" alt="">
+                        <img class="img-bandeira" src="images/bandeira.png" alt="">
             </div>
         </div>
     </footer>

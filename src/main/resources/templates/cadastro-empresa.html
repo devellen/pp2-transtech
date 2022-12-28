@@ -6,10 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
+
     <style>
-        #tela-principal {
-            background-image: linear-gradient(to bottom, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 100%);
-            margin: 0;
+        @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+        body {
+            background-image: linear-gradient(to right, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 80%);
         }
 
         header {
@@ -77,8 +80,60 @@
             border-radius: 55px;
         }
 
+        .nav-container li button:hover {
+            color: #A2D2FF;
+        }
+
+        /*--------------------------------------------------*/
         form {
-            margin-top: 20%;
+            margin-top: 5%;
+        }
+
+        .form-empresa {
+            border: none;
+            color: #f2f2f2;
+            background-color: #A2D2FF;
+            width: 270px;
+            height: 40px;
+            border-radius: 55px;
+            margin-top: 30px;
+            padding-left: 10px;
+        }
+
+        input::placeholder {
+            color: #F2F2F2;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+        }
+
+        .field {
+            width: 870px;
+            height: 630px;
+            margin: 0px auto;
+            margin-top: 10%;
+            border-radius: 50px;
+            background-color: #fbf0f8bc;
+            border: none;
+            backface-visibility: visible;
+        }
+
+        .field #logo-cadastro {
+            width: 320px;
+            height: 54px;
+            margin-top: 30px;
+        }
+
+        .btn-cadastrar {
+            color: #F2F2F2;
+            background-color: #A2D2FF;
+            box-shadow: 0 4px 4px 0 #00000044;
+            border: none;
+            font-family: 'K2D', sans-serif;
+            width: 154.31px;
+            height: 37.41px;
+            font-size: 20px;
+            border-radius: 55px;
+            margin-top: 80px;
         }
     </style>
     <title>Cadastro de Empresa</title>
@@ -115,40 +170,46 @@
         </header>
     </div>
 
-    <form action="/salvarEmpresa" th:object="${empresa}" method="post">
-        <input type="hidden" th:field="*{codigo}">
-        <div>
-            <input type="text" th:field="*{nome}" id="nome" placeholder="Nome" required>
-        </div>
+    <fieldset class="field">
+        <center>
+            <img id="logo-cadastro" src="images/logo2.png" alt="">
+        </center>
+        <form action="/salvarEmpresa" th:object="${empresa}" method="post">
+            <input type="hidden" th:field="*{codigo}">
+            <div>
+                <input type="text" th:field="*{nome}" id="nome" class="form-empresa" placeholder="Nome" required>
 
-        <div>
-            <input type="text" th:field="*{cnpj}" id="cnpj" placeholder="CNPJ" >
-        </div>
+                <input type="text" th:field="*{cnpj}" id="cnpj" class="form-empresa" placeholder="CNPJ">
+            </div>
 
-        <div>
-            <input type="text" th:field="*{Endereco.cep}" id="Endereco.cep" placeholder="CEP">
-            <input type="text" th:field="*{Endereco.rua}" id="Endereco.rua" placeholder="Endereço">
-            <input type="text" th:field="*{Endereco.numero}" id="Endereco.numero" placeholder="Nº">
-        </div>
+            <div>
+                <input type="text" th:field="*{Endereco.cep}" id="Endereco.cep" class="form-empresa" placeholder="CEP">
+                <input type="text" th:field="*{Endereco.rua}" id="Endereco.rua" class="form-empresa"
+                    placeholder="Endereço">
+                <input type="text" th:field="*{Endereco.numero}" id="Endereco.numero" class="form-empresa"
+                    placeholder="Nº">
+            </div>
 
-        <div>
-            <input type="text" th:field="*{Endereco.bairro}" id="Endereco.bairro" placeholder="Bairro">
-            <input type="text" th:field="*{Endereco.cidade}" id="Endereco.cidade" placeholder="Cidade">
-            <input type="text" th:field="*{Endereco.estado}" id="Endereco.estado" placeholder="Estado">
-        </div>
+            <div>
+                <input type="text" th:field="*{Endereco.bairro}" id="Endereco.bairro" class="form-empresa"
+                    placeholder="Bairro">
+                <input type="text" th:field="*{Endereco.cidade}" id="Endereco.cidade" class="form-empresa"
+                    placeholder="Cidade">
+                <input type="text" th:field="*{Endereco.estado}" id="Endereco.estado" class="form-empresa"
+                    placeholder="Estado">
+            </div>
 
-        <div>
-            <input type="email" th:field="*{email}" id="email" placeholder="Email" required>
-        </div>
-
-        <div>
-            <input type="password" th:field="*{senha}" id="senha" placeholder="Senha" required>
-        </div>
-
-        <div>
-            <button type="submit">Cadastrar</button>
-        </div>
-    </form>
+            <div>
+                <input type="email" th:field="*{email}" id="email" class="form-empresa" placeholder="Email" required>
+                <input type="password" th:field="*{senha}" id="senha" class="form-empresa" placeholder="Senha" required>
+            </div>
+            <center>
+                <div>
+                    <button type="submit" class="btn-cadastrar">Cadastrar</button>
+                </div>
+            </center>
+        </form>
+    </fieldset>
 </body>
 
 </html>

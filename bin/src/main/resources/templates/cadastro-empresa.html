@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+        body {
+            background-image: linear-gradient(to right, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 80%);
+        }
+
+        header {
+            position: relative;
+            top: 0;
+            height: auto;
+            width: 100%;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 60px;
+            width: 100%;
+            z-index: 1;
+            background-color: #FBF0F8;
+            box-shadow: 0px 3px 8px #615f5f8d;
+        }
+
+        nav:after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #logo {
+            width: 60px;
+            height: 60px;
+            margin-top: 0;
+            margin-left: -12%;
+        }
+
+        .nav-container ul {
+            float: right;
+            height: 100px;
+            line-height: 100px;
+            margin-top: -15px;
+        }
+
+        .nav-container ul li {
+            list-style: none;
+            float: left;
+            margin: 0 30px;
+        }
+
+        .nav-container li button {
+            text-decoration: none;
+            color: #666;
+            transition: .5s;
+            width: 154.31px;
+            height: 37.41px;
+            font-family: 'K2D', sans-serif;
+            font-size: 20px;
+            color: #FFAFCC;
+            background-color: #FBF0F8;
+            border: 3px solid #FFAFCC;
+            border-radius: 55px;
+        }
+
+        .nav-container li button:hover {
+            color: #A2D2FF;
+        }
+
+        /*--------------------------------------------------*/
+        form {
+            margin-top: 5%;
+        }
+
+        .form-empresa {
+            border: none;
+            color: #f2f2f2;
+            background-color: #A2D2FF;
+            width: 270px;
+            height: 40px;
+            border-radius: 55px;
+            margin-top: 30px;
+            padding-left: 10px;
+        }
+
+        input::placeholder {
+            color: #F2F2F2;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+        }
+
+        .field {
+            width: 870px;
+            height: 630px;
+            margin: 0px auto;
+            margin-top: 10%;
+            border-radius: 50px;
+            background-color: #fbf0f8bc;
+            border: none;
+            backface-visibility: visible;
+        }
+
+        .field #logo-cadastro {
+            width: 320px;
+            height: 54px;
+            margin-top: 30px;
+        }
+
+        .btn-cadastrar {
+            color: #F2F2F2;
+            background-color: #A2D2FF;
+            box-shadow: 0 4px 4px 0 #00000044;
+            border: none;
+            font-family: 'K2D', sans-serif;
+            width: 154.31px;
+            height: 37.41px;
+            font-size: 20px;
+            border-radius: 55px;
+            margin-top: 80px;
+        }
+    </style>
+    <title>Cadastro de Empresa</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="nav-container">
+                    <a href="/index">
+                        <img id="logo" src="images/logo1.png" alt="">
+                    </a>
+                    <i class="fas fa-bars btn-menumobile"></i>
+                    <ul>
+                        <li>
+                            <a href="/index">
+                                <button id="home">Home</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/listarVagas">
+                                <button id="vagas">Vagas</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/quemSomos">
+                                <button id="quem">Quem Somos</button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <fieldset class="field">
+        <center>
+            <img id="logo-cadastro" src="images/logo2.png" alt="">
+        </center>
+        <form action="/salvarEmpresa" th:object="${empresa}" method="post">
+            <input type="hidden" th:field="*{codigo}">
+            <div>
+                <input type="text" th:field="*{nome}" id="nome" class="form-empresa" placeholder="Nome" required>
+
+                <input type="text" th:field="*{cnpj}" id="cnpj" class="form-empresa" placeholder="CNPJ">
+            </div>
+
+            <div>
+                <input type="text" th:field="*{Endereco.cep}" id="Endereco.cep" class="form-empresa" placeholder="CEP">
+                <input type="text" th:field="*{Endereco.rua}" id="Endereco.rua" class="form-empresa"
+                    placeholder="Endereço">
+                <input type="text" th:field="*{Endereco.numero}" id="Endereco.numero" class="form-empresa"
+                    placeholder="Nº">
+            </div>
+
+            <div>
+                <input type="text" th:field="*{Endereco.bairro}" id="Endereco.bairro" class="form-empresa"
+                    placeholder="Bairro">
+                <input type="text" th:field="*{Endereco.cidade}" id="Endereco.cidade" class="form-empresa"
+                    placeholder="Cidade">
+                <input type="text" th:field="*{Endereco.estado}" id="Endereco.estado" class="form-empresa"
+                    placeholder="Estado">
+            </div>
+
+            <div>
+                <input type="email" th:field="*{email}" id="email" class="form-empresa" placeholder="Email" required>
+                <input type="password" th:field="*{senha}" id="senha" class="form-empresa" placeholder="Senha" required>
+            </div>
+            <center>
+                <div>
+                    <button type="submit" class="btn-cadastrar">Cadastrar</button>
+                </div>
+            </center>
+        </form>
+    </fieldset>
+</body>
+
+</html>

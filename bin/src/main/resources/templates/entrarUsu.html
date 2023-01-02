@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
-   
-   
     <style>
         @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-
-
+    </style>
+    <link rel="stylesheet" href="css/style-entrar.css">
+    <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
+    <title>Entrar</title>
+    <style>
         body {
-            background-color: #FBF0F8;
-            font-family: 'K2D', sans-serif;
+            background-image: linear-gradient(to right, #FBF0F8 20%, #FFAFCC 44.27%, #FFAFCC 50%, #FBF0F8 80%);
         }
 
         header {
@@ -85,12 +85,63 @@
         .nav-container li button:hover {
             color: #A2D2FF;
         }
-        .vaga {
-        margin-top: 8%;
+
+        /*-----------------------------------------------------------*/
+
+        .field {
+            width: 400px;
+            height: 500px;
+            margin: 0px auto;
+            margin-top: 12%;
+            border-radius: 50px;
+            background-color: #fbf0f8bc;
+            border: none;
+            backface-visibility: visible;
+        }
+
+        .field #logo-cadastro {
+            width: 320px;
+            height: 54px;
+            margin-top: 30px;
+        }
+
+        .input-usuario {
+            border: none;
+            color: #f2f2f2;
+            background-color: #FFAFCC;
+            width: 270px;
+            height: 40px;
+            border-radius: 55px;
+            margin-top: 30px;
+            padding-left: 10px;
+        }
+
+        input::placeholder {
+            color: #F2F2F2;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+        }
+
+        .btn-entrar {
+            color: #F2F2F2;
+            background-color: #FFAFCC;
+            box-shadow: 0 4px 4px 0 #00000044;
+            border: none;
+            font-family: 'K2D', sans-serif;
+            width: 154.31px;
+            height: 37.41px;
+            font-size: 20px;
+            border-radius: 55px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            margin-bottom: -10px;
+            font-family: 'K2D', sans-serif;
         }
     </style>
-    <title>Detalhe da vaga</title>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -120,13 +171,34 @@
                 </div>
             </nav>
         </header>
+    </div>
 
-        <div>
-            <h2 class="vaga" th:text="${lista2.nome}"></h2>
-            <h5 th:text="${lista2.cidade}"></h5>
-            <p th:text="${lista2.descricao}"></p>
-            <p th:text="${lista2.salario}"></p>
-            <p th:text="${lista2.horario}"></p>
-        </div>
+    <section>
+        <center>
+            <fieldset class="field">
+                <img id="logo-cadastro" src="images/logo2.png" alt="">
+                <form action="/efetuarLoginUsuario" method="post">
+                    <div>
+                        <input type="text" name="email" class="input-usuario" placeholder="Digite o seu e-mail"
+                            required />
+                        <input type="password" name="senha" class="input-usuario" placeholder="Digite a sua senha"
+                            required />
+                    </div>
+                    <div>
+                        <button type="submit" class="btn-entrar">Entrar</button>
+                    </div>
+                </form>
+
+                <br><br>
+                <div>
+                    <h3>AINDA NÃO TEM CONTA?</h3>
+                    <a href="/cadastroUsuario">
+                        <button type="submit" class="btn-entrar">Cadastrar</button>
+                    </a>
+                </div>
+            </fieldset>
+        </center>
+    </section>
 </body>
+
 </html>

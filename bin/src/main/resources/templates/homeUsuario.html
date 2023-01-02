@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
-   
-   
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-
-
         body {
-            background-color: #FBF0F8;
-            font-family: 'K2D', sans-serif;
+            background-image: linear-gradient(to right, #FBF0F8 20%, #FFAFCC 44.27%, #FFAFCC 50%, #FBF0F8 80%);
         }
 
         header {
@@ -85,13 +80,13 @@
         .nav-container li button:hover {
             color: #A2D2FF;
         }
-        .vaga {
-        margin-top: 8%;
-        }
+        /*-----------------------------------------------*/
     </style>
-    <title>Detalhe da vaga</title>
+    <title>Feed Usuário</title>
 </head>
+
 <body>
+
     <div class="container">
         <header>
             <nav>
@@ -106,27 +101,22 @@
                                 <button id="home">Home</button>
                             </a>
                         </li>
-                        <li>
-                            <a href="/listarVagas">
-                                <button id="vagas">Vagas</button>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/quemSomos">
-                                <button id="quem">Quem Somos</button>
-                            </a>
-                        </li>
+
                     </ul>
                 </div>
             </nav>
         </header>
+    </div>
 
-        <div>
-            <h2 class="vaga" th:text="${lista2.nome}"></h2>
-            <h5 th:text="${lista2.cidade}"></h5>
-            <p th:text="${lista2.descricao}"></p>
-            <p th:text="${lista2.salario}"></p>
-            <p th:text="${lista2.horario}"></p>
-        </div>
+    <br><br><br><br><br><br>
+    Usuário
+    <form action="/logout" method="post">
+        <button type="submit">Sair</button>
+    </form>
+
+    <a href="/listarVagas">
+        <button>Vagas disponíveis</button>
+    </a>
 </body>
+
 </html>

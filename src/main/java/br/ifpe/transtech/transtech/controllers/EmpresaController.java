@@ -1,13 +1,18 @@
 package br.ifpe.transtech.transtech.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ifpe.transtech.transtech.model.Empresa;
 import br.ifpe.transtech.transtech.model.EmpresaDAO;
+import br.ifpe.transtech.transtech.model.Vaga;
+import br.ifpe.transtech.transtech.model.VagaDao;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -15,6 +20,9 @@ public class EmpresaController {
 
     @Autowired
     private EmpresaDAO daoEmp;
+    
+    @Autowired
+    private VagaDao daoVaga;
 
     @GetMapping("/entrarEmp")
     public String entrarEmp() {
@@ -46,7 +54,10 @@ public class EmpresaController {
     }
 
     @GetMapping("/homeEmpresa")
-    public String homeEmpresa() {
+    public String homeEmpresa(HttpSession session, Model model) {
+    	Empresa empresa = (Empresa) session.getAttribute("empresaLogado");
+    	List <Vaga> listaVaga = daoVaga.listaVaga(empresa.getCodigo());
+    	model.addAttribute("listaVaga", listaVaga);
         return "homeEmpresa";
     }
 

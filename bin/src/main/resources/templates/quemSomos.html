@@ -3,13 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" src="../static/css/pagTeste.css">
+    <title>Quem Somos</title>
     <style>
-    	@import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-        
         #tela-principal {
             background-image: linear-gradient(to bottom, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 100%);
             margin: 0;
@@ -80,15 +78,22 @@
             border-radius: 55px;
         }
 
-        .nav-container #home {
+        /*-----------------------------------------------------------*/
+
+        .nav-container #quem {
             color: #A2D2FF;
             border: 3px solid #A2D2FF;
+        }
+
+        .nav-container #entrar {
+            color: #F2F2F2;
+            background-color: #FFAFCC;
+            box-shadow: 0 4px 4px 0 #00000044;
         }
 
         .nav-container li button:hover {
             color: #A2D2FF;
         }
-        /*-----------------------------------------------------------*/
 
         .logo2 {
             margin-top: 8%;
@@ -119,6 +124,13 @@
             color: #F2F2F2;
             border: #FFAFCC;
             background-color: #FFAFCC;
+            box-shadow: 0 4px 4px 0 #00000044;
+        }
+
+        .principal2 #entrar2 {
+            color: #FFAFCC;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            background-color: #c3e2ff;
             box-shadow: 0 4px 4px 0 #00000044;
         }
 
@@ -154,16 +166,12 @@
         }
 
         .img-bandeira {
-            margin-bottom: 5%;
-            margin-left: 50%;
             width: 90%;
         }
     </style>
-    <title>Trans Tech</title>
-
 </head>
 
-<body id="tela-principal" class="teste">
+<body>
     <div class="container">
         <header>
             <nav>
@@ -193,80 +201,64 @@
             </nav>
         </header>
     </div>
+
     <section id="section1">
         <article id="article1">
-            <div class="logo2">
-                <center>
-                    <img src="images/logo2.png" alt="">
-                </center>
+            <div class="container">
+                <div class="principal1">
+                    <h2>Quem somos?</h2>
+                    <p>A <strong>TransTech</strong> é uma agente TRANSformadora do mercado da<br>
+                        técnologia, que através da inclusão de pessoas trans da RMR do<br>
+                        Recife busca um mercado e um mundo mais receptivo a pessoas<br> trans.<br>
+                        <br>
+                        Vem conferir as vagas que nós selecionamos especialmente pra <br>você!
+                    </p>
+                </div>
+                <div class="principal2">
+                    <a href="/cadastroUsuario">
+                        <button id="cadastro">Cadastrar</button>
+                    </a>
+                    <br>
+                    <br>
+                    <br>
+                    <a href="#">
+                        <button id="entrar2">Entrar</button>
+                    </a>
+                </div>
             </div>
         </article>
+    </section>
 
+    <section id="section2">
         <article id="article2">
             <div class="container">
                 <div class="principal1">
-                    <h2 class="teste">Ei, você pessoa trans!</h2>
-                    <p>Chegou a hora de ingressar no mercado de tecnologia, a<br>
-                        TransTech vem preparando esse espaço pra te receber e<br>
-                        agora só falta você se cadastrar na nossa plataforma!</p>
+
+                    <div>
+                        <p class="text">90% das pessoas trans<br>
+                            vivem da prostituição</p>
+                        <img class="grafico" src="images/grafico.png" alt="">
+                        <p class="text1">Apenas 10% está <br>
+                            devidamente empregada.</p>
+                    </div>
+
+                    <div class="principal3">
+
+                        <h2>Motivação</h2>
+
+                        <p>Foi identificado através de pesquisas e estatísticas que 90% da <br>
+                            populacação trans e travestis tem a prostituição como fonte de renda <br>
+                            e possibilidade de subsistência. E isso é causado por vários fatores, <br>
+                            dentre eles, a dificuldade de ingressar no mercado de trabalho.<br>
+                            <br>
+                            <br>
+                            Saiba mais no site da ANTRA
+                        </p>
+                    </div>
                 </div>
-                <div class="principal2">
-                    <a href="/entrarUsu">
-                        <button id="cadastro">Entrar como usuário</button>
-                    </a>
-                    <br>
-                    <br>
-                    <a href="/entrarEmp">
-                        <button id="cadastro">Entrar como empresa</button>
-                    </a>
-                </div>
-            </div>
         </article>
     </section>
 
-    <section id="section3">
-        <div class="container">
-            <div class="vaga-principal">
-                <a href="descricao-vagas/vaga3-principal.html">
-                    <img class="img" src="images/vaga-1.png" alt="">
-                </a>
-            </div>
-            <div class="vaga-principal">
-                <a href="descricao-vagas/vaga3-principal.html">
-                    <img class="img" src="images/vaga-2.png" alt="">
-                </a>
-            </div>
-            <div class="vaga-principal">
-                <a href="descricao-vagas/vaga3-principal.html">
-                    <img class="img" src="images/vaga-3.png" alt="">
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="rodape">
-        <div class="container">
-            <div>
-                <strong>
-                    <p>Equipe: Alice Domingues, Ellen Paticia, Julio Cesar</p>
-                    <p>Estr. de Bulhões - Bulhões, Jaboatão dos Guararapes - PE, 54080-000</p>
-                    <p>CNPJ: 03.907.333/0001-97</p>
-                    <br>
-                    <p>COPYRIGTH ©℗®™</p>
-                </strong>
-            </div>
-            <div>
-                <center>
-                    <img class="img2" src="images/linkedin.png" alt="">
-                    <img class="img2" src="images/instagram.png" alt="">
-                    <img class="img2" src="images/wpp.png" alt="">
-                    <img class="img2" src="images/tt.png" alt="">
-                    <center>
-                        <br>
-                        <img class="img-bandeira" src="images/bandeira.png" alt="">
-            </div>
-        </div>
-    </footer>
 </body>
 
 </html>

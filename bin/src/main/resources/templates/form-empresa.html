@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+		body {
+			background-image: linear-gradient(to right, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 80%);
+			font-family: 'Nunito', sans-serif;
+		}
+
+		h3 {
+			margin-top: 8%;
+
+		}
+
+		.field {
+			width: 400px;
+			height: 500px;
+			margin: 0px auto;
+			margin-top: 5%;
+			border-radius: 50px;
+			background-color: #fbf0f8bc;
+			border: none;
+			backface-visibility: visible;
+		}
+
+		.form-empresa {
+			border: none;
+			color: #f2f2f2;
+			background-color: #A2D2FF;
+			width: 270px;
+			height: 40px;
+			border-radius: 55px;
+			margin-top: 30px;
+			padding-left: 10px;
+		}
+
+		input::placeholder {
+			color: #F2F2F2;
+			font-family: 'Nunito', sans-serif;
+			font-size: 14px;
+		}
+
+		select {
+			color: #F2F2F2;
+			font-family: 'Nunito', sans-serif;
+			font-size: 14px;
+		}
+
+		.btn-cadastrar {
+            color: #F2F2F2;
+            background-color: #A2D2FF;
+            box-shadow: 0 4px 4px 0 #00000044;
+            border: none;
+            font-family: 'K2D', sans-serif;
+            width: 154.31px;
+            height: 37.41px;
+            font-size: 15px;
+            border-radius: 55px;
+            margin-top: 50px;
+        }
+
+		.limpar{
+			background-color: #F2F2F2;
+            color: #A2D2FF;
+		}
+	</style>
+	<title>Cadastro de Vagas</title>
+</head>
+<div class="pure-u-1 pure-u-md-1-3">
+
+	<center>
+		<h3>Preencha os dados para a inscrição</h3>
+		<fieldset class="field">
+			<form action="/salvarVaga" method="post" class="pure-form pure-form-stacked">
+
+				<input type="text" name="nome" class="form-empresa" placeholder="Cargo" size="40" required> <br />
+				<input type="text" name="descricao" class="form-empresa" placeholder="Descrição da vaga" size="30"
+					required> <br />
+				<input type="text" name="salario" class="form-empresa" placeholder="Salário" size="40"><br />
+				<input type="datetime" name="horario" class="form-empresa" placeholder="Horário" size="30"> <br />
+				<select name="cidade" class="form-empresa" required>
+					<option value="Recife">Recife</option>
+					<option value="Jaboatao">Jaboatão</option>
+					<option value="Camaragibe">Camaragibe</option>
+					<option value="SãoLourenço">São Lourenço da Mata</option>
+					<option value="Paulista">Paulista</option>
+					<option value="Moreno">Moreno</option>
+					<option value="Itapissuma">Itapissuma</option>
+					<option value="Itamaracá">Itamaracá</option>
+					<option value="Cabo">Cabo</option>
+					<option value="Araçoiaba">Araçoiaba</option>
+					<option value="AbreuLima">Abreu e Lima</option>
+				</select> <br />
+				<button type="submit" class="btn-cadastrar">Realizar Cadastro</button>
+				<button type="reset" class="btn-cadastrar limpar">Limpar dados</button>
+			</form>
+		</fieldset>
+	</center>
+</div>
+</body>
+
+</html>

@@ -5,16 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
-   
-   
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+                @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 
-        body {
-            background-color: #FBF0F8;
-            font-family: 'K2D', sans-serif;
+        #tela-principal {
+            background-image: linear-gradient(to bottom, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 100%);
+            margin: 15%;
+
         }
 
         header {
@@ -85,9 +84,6 @@
         .nav-container li button:hover {
             color: #A2D2FF;
         }
-        .vaga {
-        margin-top: 8%;
-        }
     </style>
     <title>Detalhe da vaga</title>
 </head>
@@ -121,12 +117,8 @@
             </nav>
         </header>
 
-        <div>
-            <h2 class="vaga" th:text="${lista2.nome}"></h2>
-            <h5 th:text="${lista2.cidade}"></h5>
-            <p th:text="${lista2.descricao}"></p>
-            <p th:text="${lista2.salario}"></p>
-            <p th:text="${lista2.horario}"></p>
+        <div th:each="vaga : ${lista2}">
+            <h2 th:text="${vaga.nome}"></h2>
         </div>
 </body>
 </html>

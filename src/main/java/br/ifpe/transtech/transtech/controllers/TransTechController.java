@@ -49,8 +49,12 @@ public class TransTechController {
     }
 
     @GetMapping("/detalheVaga")
-    public String detlaheCaga( Model model) {
-        model.addAttribute("lista2", daoVaga.findAll());
+    public String detalheVaga(Integer codigo, Model model) {
+    	 Vaga id= daoVaga.findById(codigo).orElse(null);
+    	System.out.println(id);
+        model.addAttribute("lista2", id);
         return "detalheVaga";
     }
+    
+   
 }

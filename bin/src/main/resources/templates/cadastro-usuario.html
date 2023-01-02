@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
-   
-   
     <style>
         @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-
-
+    </style>
+    <title>Cadastro de Usuário</title>
+    <style>
         body {
-            background-color: #FBF0F8;
-            font-family: 'K2D', sans-serif;
+            background-image: linear-gradient(to right, #FBF0F8 20%, #FFAFCC 44.27%, #FFAFCC 50%, #FBF0F8 80%);
         }
 
         header {
@@ -85,12 +84,62 @@
         .nav-container li button:hover {
             color: #A2D2FF;
         }
-        .vaga {
-        margin-top: 8%;
+
+        /*-----------------------------------------------------------*/
+
+        .form-usuario {
+            border: none;
+            color: #f2f2f2;
+            background-color: #FFAFCC;
+            width: 270px;
+            height: 40px;
+            border-radius: 55px;
+            margin-top: 20px;
+            padding-left: 10px;
+        }
+
+        input::placeholder {
+            color: #F2F2F2;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+        }
+
+        .form {
+            margin-top: 5%;
+        }
+
+        .field {
+            width: 400px;
+            height: 500px;
+            margin: 0px auto;
+            margin-top: 12%;
+            border-radius: 50px;
+            background-color: #fbf0f8bc;
+            border: none;
+            backface-visibility: visible;
+        }
+
+        .field #logo-cadastro {
+            width: 320px;
+            height: 54px;
+            margin-top: 30px;
+        }
+
+        .btn-cadastrar {
+            color: #F2F2F2;
+            background-color: #FFAFCC;
+            box-shadow: 0 4px 4px 0 #00000044;
+            border: none;
+            font-family: 'K2D', sans-serif;
+            width: 154.31px;
+            height: 37.41px;
+            font-size: 20px;
+            border-radius: 55px;
+            margin-top: 30px;
         }
     </style>
-    <title>Detalhe da vaga</title>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -120,13 +169,41 @@
                 </div>
             </nav>
         </header>
+    </div>
 
-        <div>
-            <h2 class="vaga" th:text="${lista2.nome}"></h2>
-            <h5 th:text="${lista2.cidade}"></h5>
-            <p th:text="${lista2.descricao}"></p>
-            <p th:text="${lista2.salario}"></p>
-            <p th:text="${lista2.horario}"></p>
-        </div>
+    <center>
+        <fieldset class="field">
+            <img id="logo-cadastro" src="images/logo2.png" alt="">
+            <form action="/salvarUsuario" th:object="${usuario}" method="post" class="form">
+                <input type="hidden" th:field="*{codUsuario}">
+                <div>
+                    <input type="text" th:field="*{nome}" id="nome" class="form-usuario" placeholder="Nome" required>
+                </div>
+
+                <div>
+                    <input type="date" th:field="*{dataNascimento}" id="dataNascimento" class="form-usuario">
+                </div>
+
+                <div>
+                    <input type="text" th:field="*{telefone}" id="telefone" class="form-usuario" placeholder="Telefone">
+                </div>
+
+                <div>
+                    <input type="email" th:field="*{email}" id="email" class="form-usuario" placeholder="Email"
+                        required>
+                </div>
+
+                <div>
+                    <input type="password" th:field="*{senha}" class="form-usuario" id="senha" placeholder="Senha"
+                        required>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn-cadastrar">Cadastrar</button>
+                </div>
+            </form>
+        </fieldset>
+    </center>
 </body>
+
 </html>

@@ -14,8 +14,6 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class TransTechController {
 
-    // private List<Vaga> vaga = new ArrayList<>();
-
     @Autowired
     private VagaDao daoVaga;
 
@@ -36,7 +34,7 @@ public class TransTechController {
     }
 
     @GetMapping("/listarVagas")
-    public String listarVagas(Model model) {
+    public String listarVagas( Model model) {
         model.addAttribute("lista", daoVaga.findAll());
         return "vagas";
     }
@@ -48,5 +46,11 @@ public class TransTechController {
         daoVaga.save(vaga);
         System.out.println(vaga);
         return "homeEmpresa";
+    }
+
+    @GetMapping("/detalheVaga")
+    public String detlaheCaga( Model model) {
+        model.addAttribute("lista2", daoVaga.findAll());
+        return "detalheVaga";
     }
 }

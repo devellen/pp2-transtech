@@ -152,7 +152,8 @@
                             <h5 class="card-title" th:text="${vaga.nome}"></h5>
                             <h6 class="card-subtitle mb-2 text-muted" th:text="${vaga.cidade}"></h6>
                             <p class="card-text" th:text="${vaga.descricaoLimitada}"></p>
-                            <a href="/detalheVaga" class="btn btn-primary">Candidatar-se</a>
+                            <a th:href="@{/detalheVaga(codigo=${vaga.codVaga})}" class="btn btn-primary">Candidatar-se</a>
+                    
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,8 @@
 package br.ifpe.transtech.transtech.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.bind.DefaultValue;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,8 +36,11 @@ public class TransTechController {
     }
 
     @GetMapping("/listarVagas")
-    public String listarVagas( Model model) {
-        model.addAttribute("lista", daoVaga.findAll());
+    public String listarVagas( @DefaultValue("1") Integer page, Model model) {
+    	if (page == null) {
+    		page = 0;
+    	}
+        model.addAttribute("lista", daoVaga.findAll(PageRequest.of(page, 6)));
         return "vagas";
     }
 
@@ -45,7 +50,7 @@ public class TransTechController {
         vaga.setEmpresa(empresa);
         daoVaga.save(vaga);
         System.out.println(vaga);
-        return "homeEmpresa";
+        return "redirect:/homeEmpresa";
     }
 
     @GetMapping("/detalheVaga")
@@ -56,5 +61,11 @@ public class TransTechController {
         return "detalheVaga";
     }
     
-   
+    @GetMapping("/detalheVagaEmpresa")
+    public String detalheVagaEmpresa(Integer codigo, Model model) {
+    	 Vaga id= daoVaga.findById(codigo).orElse(null);
+    	System.out.println(id);
+        model.addAttribute("lista2", id);
+        return "detalheVagaEmpresa";
+    }
 }

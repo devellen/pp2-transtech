@@ -16,8 +16,8 @@ import jakarta.servlet.http.HttpSession;
 public class FiltroUsuarioLogado implements Filter {
 
 	private String[] pathsLiberados = { "/", "/entrarEmp", "/entrarUsu", "/cadastroEmpresa",
-			"/cadastroUsuario", "/salvarUsuario", "/efetuarLoginUsuario", "/efetuarLoginEmpresa", "/salvarEmpresa",
-			"/index", "/quemSomos", "/listarVagas", "/acessoNegado", "/detalheVaga(.*)", "/h2-console(.*)", "/css/(.*)", "/images/(.*)" };
+			"/cadastroUsuario", "/salvarUsuario", "/salvarCandidatura", "/efetuarLoginUsuario", "/efetuarLoginEmpresa", "/salvarEmpresa",
+			"/index", "/quemSomos", "/listarVagas", "/acessoNegado", "/detalheVaga(.*)", "/pesquisaVaga(.*)", "/h2-console(.*)", "/css/(.*)", "/images/(.*)" };
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

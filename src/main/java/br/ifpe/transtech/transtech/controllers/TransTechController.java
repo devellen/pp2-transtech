@@ -7,7 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import br.ifpe.transtech.transtech.model.Candidatura;
+import br.ifpe.transtech.transtech.model.CandidaturaDAO;
 import br.ifpe.transtech.transtech.model.Empresa;
+import br.ifpe.transtech.transtech.model.Usuario;
 import br.ifpe.transtech.transtech.model.Vaga;
 import br.ifpe.transtech.transtech.model.VagaDao;
 
@@ -18,6 +22,10 @@ public class TransTechController {
 
     @Autowired
     private VagaDao daoVaga;
+
+    @Autowired
+     private CandidaturaDAO daoCandidatura;
+
 
     @GetMapping("/index")
     public String index() {
@@ -67,5 +75,26 @@ public class TransTechController {
     	System.out.println(id);
         model.addAttribute("lista2", id);
         return "detalheVagaEmpresa";
+    }
+
+    @GetMapping("/listarCandidatura")
+    public String listarCandidatura(Model model) {
+        model.addAttribute("lista", daoCandidatura.findAll());
+        return "index";
+    }
+
+    @PostMapping("/salvarInscricao")
+    public String salvarCandidatura(Candidatura candidatura, HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("empresaLogado");
+        Candidatura.setUsuario(usuario);
+        daoCandidatura.save(candidatura);
+        System.out.println(candidatura);
+        return "homeEmpresa";
+    }
+
+    @PostMapping("/pesquisaVaga")
+    public String pesquisaVaga(String nome, Model model){
+        model.addAttribute("lista" , daoVaga.findByName(nome));
+        return "vagas";
     }
 }

@@ -49,4 +49,9 @@ public class UsuarioController {
             return "redirect:/";
         }
     }
+
+    @GetMapping("/formUsuario")
+    public String formUsuario() {
+        return "form-usuario";
+    }
 }

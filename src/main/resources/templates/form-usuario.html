@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
+    <style>
+		@import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+		body {
+			background-image: linear-gradient(to right, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 80%);
+			font-family: 'Nunito', sans-serif;
+		}
+
+		h3 {
+			margin-top: 8%;
+
+		}
+
+		.field {
+			width: 400px;
+			height: 500px;
+			margin: 0px auto;
+			margin-top: 5%;
+			border-radius: 50px;
+			background-color: #fbf0f8bc;
+			border: none;
+			backface-visibility: visible;
+		}
+
+		.form-usuario {
+			border: none;
+			color: #f2f2f2;
+			background-color: #A2D2FF;
+			width: 200px;
+			height: 35px;
+			border-radius: 55px;
+			margin-top: 30px;
+			padding-left: 10px;
+		}
+
+		input::placeholder {
+			color: #F2F2F2;
+			font-family: 'Nunito', sans-serif;
+			font-size: 14px;
+		}
+
+		select {
+			color: #F2F2F2;
+			font-family: 'Nunito', sans-serif;
+			font-size: 14px;
+		}
+
+		.btn-cadastrar {
+            color: #F2F2F2;
+            background-color: #A2D2FF;
+            box-shadow: 0 4px 4px 0 #00000044;
+            border: none;
+            font-family: 'K2D', sans-serif;
+            width: 154.31px;
+            height: 37.41px;
+            font-size: 15px;
+            border-radius: 55px;
+            margin-top: 10px;
+        }
+
+		.limpar{
+			background-color: #F2F2F2;
+            color: #A2D2FF;
+		}
+	</style>
+    <title>Cadastro de Vagas</title>
+</head>
+<body>
+<form action="/salvarInscricao" method="post" class="pure-form pure-form-stacked">
+	<center>
+
+				<fieldset class="field">
+					Nome: <input type="text" name="nome" class="form-usuario" placeholder="informe seu nome" size="40" required> <br /> 
+                    Idade: <input type="number" name="idade" class="form-usuario" placeholder="" size="30" required> <br /> 
+					Endereço:<input type="text" name="endereco" class="form-usuario" placeholder="informe sua idade" size="40" required><br />
+				    Telefone: <input type="number" name="telefone" class="form-usuario" placeholder="telefone para contato" size="30" required> <br />
+                    Email:<input type="text" name="email" class="form-usuario" placeholder="email para contato" size="40"><br />
+					 Escolaridade <select name="escolaridade" class="form-usuario" required>
+					    <option value="Fundamental">Fundamental</option>
+						<option value="MedioIn">Médio Incompleto</option>
+						<option value="Medio">Médio Completo</option>
+						<option value="SuperiorIn">Suerior Incompleto</option>
+					    <option value="Superior">Superior Completo</option>
+					</select> <br />
+					<br> <label>Curriculo: <input type="file" name="curriculo"  ></label>
+					 
+					<button type="submit" class="btn-cadastrar">Realizar Cadastro</button>
+					<button type="reset" class="btn-cadastrar limpar">Limpar dados</button>
+				</fieldset>
+				</center>
+			</form>
+
+        </body>
+        </html>

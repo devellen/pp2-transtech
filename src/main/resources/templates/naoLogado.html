@@ -80,6 +80,7 @@
         .nav-container li button:hover {
             color: #A2D2FF;
         }
+
         /*-----------------------------------------------*/
     </style>
     <title>Feed Usuário</title>
@@ -97,8 +98,8 @@
                     <i class="fas fa-bars btn-menumobile"></i>
                     <ul>
                         <li>
-                            <a href="/listarVagas">
-                                <button id="vaga">Vagas</button>
+                            <a href="/index">
+                                <button id="home">Home</button>
                             </a>
                         </li>
 
@@ -108,11 +109,38 @@
         </header>
     </div>
 
-    <br><br><br><br><br><br>
-    Usuário
-    <form action="/logout" method="post">
-        <button type="submit">Sair</button>
-    </form>
+    <section id="section1">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <article id="article1">
+            <div class="logo2">
+                <center>
+                    <img src="images/logo2.png" alt="">
+                </center>
+            </div>
+        </article>
+
+        <article id="article2">
+            <div class="container">
+                <div>
+                    <h1>AINDA NÃO ESTÁ LOGADO?</h1>
+                </div>
+                <div>
+                    <a href="/entrarUsu">
+                        <button id="cadastro">Entrar como usuário</button>
+                    </a>
+                    <br>
+                    <br>
+                    <a href="/entrarEmp">
+                        <button id="cadastro">Entrar como empresa</button>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </section>
 </body>
 
 </html>

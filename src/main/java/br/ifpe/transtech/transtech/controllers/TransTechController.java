@@ -83,6 +83,11 @@ public class TransTechController {
         return "index";
     }
 
+    @GetMapping("/acessoNegado")
+    public String acessoNegado() {
+        return "naoLogado";
+    }
+
     @PostMapping("/salvarInscricao")
     public String salvarCandidatura(Candidatura candidatura, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("empresaLogado");

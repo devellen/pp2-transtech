@@ -82,6 +82,40 @@
         }
 
         /*-----------------------------------------------*/
+
+        .field {
+            width: 400px;
+            height: 300px;
+            margin: 0px auto;
+            margin-top: 5%;
+            border-radius: 50px;
+            background-color: #fbf0f8bc;
+            border: none;
+            backface-visibility: visible;
+        }
+
+        .principal2 button {
+            width: 250px;
+            height: 55px;
+            font-family: 'K2D', sans-serif;
+            font-size: 20px;
+            border-radius: 55px;
+        }
+
+        .principal2 #cadastroEmp {
+            color: #F2F2F2;
+            border: #A2D2FF;
+            background-color: #A2D2FF;
+            box-shadow: 0 4px 4px 0 #00000044;
+        }
+
+        .principal2 #cadastroUsu {
+            color: #F2F2F2;
+            border: #FFAFCC;
+            background-color: #FFAFCC;
+            box-shadow: 0 4px 4px 0 #00000044;
+        }
+
     </style>
     <title>Feed Usuário</title>
 </head>
@@ -102,7 +136,11 @@
                                 <button id="home">Home</button>
                             </a>
                         </li>
-
+                        <li>
+                            <a href="/quemSomos">
+                                <button id="quem">Quem Somos</button>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -124,21 +162,25 @@
         </article>
 
         <article id="article2">
-            <div class="container">
-                <div>
-                    <h1>AINDA NÃO ESTÁ LOGADO?</h1>
-                </div>
-                <div>
-                    <a href="/entrarUsu">
-                        <button id="cadastro">Entrar como usuário</button>
-                    </a>
-                    <br>
-                    <br>
-                    <a href="/entrarEmp">
-                        <button id="cadastro">Entrar como empresa</button>
-                    </a>
-                </div>
-            </div>
+            <fieldset class="field">
+                <center>
+                    <div class="container">
+                        <div>
+                            <h1>AINDA NÃO ESTÁ LOGADO?</h1>
+                        </div>
+                        <div class="principal2">
+                            <a href="/entrarUsu">
+                                <button id="cadastroUsu">Entrar como usuário</button>
+                            </a>
+                            <br>
+                            <br>
+                            <a href="/entrarEmp">
+                                <button id="cadastroEmp">Entrar como empresa</button>
+                            </a>
+                        </div>
+                    </div>
+                </center>
+            </fieldset>
         </article>
     </section>
 </body>

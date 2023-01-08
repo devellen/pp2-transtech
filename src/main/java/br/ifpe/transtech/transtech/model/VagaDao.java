@@ -9,7 +9,6 @@ public interface VagaDao extends JpaRepository<Vaga, Integer>{
 	@Query("select v from Vaga v where v.empresa.codigo like :codigo")
 	public List <Vaga> listaVaga(Integer codigo);
 
-	@Query("select v from Vaga v where v.nome like %?1%")
-	public List <Vaga> findByName(String nome);
+	 List <Vaga> findByNomeContainingIgnoreCase(String nome);
 	
 }

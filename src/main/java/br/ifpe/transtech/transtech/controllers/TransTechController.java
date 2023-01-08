@@ -99,7 +99,7 @@ public class TransTechController {
 
     @PostMapping("/pesquisaVaga")
     public String pesquisaVaga(String nome, Model model){
-        model.addAttribute("lista" , daoVaga.findByName(nome));
+        model.addAttribute("lista" , daoVaga.findByNomeContainingIgnoreCase(nome));
         return "vagas";
     }
 }

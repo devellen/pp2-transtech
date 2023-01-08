@@ -27,7 +27,7 @@ public class Vaga {
     }
 
     public String getDescricaoLimitada() {
-        return descricao.length()>100 ? descricao.substring(0, 100):descricao;
+        return descricao.length()>50 ? descricao.substring(0, 50):descricao;
     }
     
     public Integer getCodVaga() {

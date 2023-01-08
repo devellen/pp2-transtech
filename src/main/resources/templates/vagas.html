@@ -14,9 +14,9 @@
 		@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 		#tela-principal {
-			background-image: linear-gradient(to bottom, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%,
-					#FBF0F8 100%);
-			margin: 15%;
+			background-color: #FBF0F8;
+			margin: 2%;
+			font-family: 'K2D', sans-serif;
 		}
 
 		header {
@@ -60,8 +60,8 @@
 		.nav-container ul {
 			float: right;
 			height: 100px;
-			line-height: 100px;
-			margin-top: -15px;
+			line-height: 20px;
+			margin-top: 10px;
 		}
 
 		.nav-container ul li {
@@ -83,7 +83,6 @@
 			border: 3px solid #FFAFCC;
 			border-radius: 55px;
 		}
-
 		.nav-container li button:hover {
 			color: #A2D2FF;
 		}
@@ -102,18 +101,42 @@
 		}
 
 		.form {
-			border: none;
-			color: #f2f2f2;
-			background-color: #a2d2ff58;
+			border: 2px solid #FFAFCC;
+			background-color: #FBF0F8;
 			width: 270px;
 			height: 40px;
 			border-radius: 55px;
-			margin-top: 30px;
+			margin-top: 5%;
 			padding-left: 10px;
 		}
 
 		.div-card {
 			margin-top: 2%;
+		}
+
+		.botao {
+            color: white;
+            background-color: #FFAFCC;
+            box-shadow: 0 4px 4px 0 #00000044;
+            border: none;
+            font-family: 'K2D', sans-serif;
+            width: 154.31px;
+            height: 37.41px;
+            font-size: 17px;
+            border-radius: 55px;
+        }
+
+		#busca {
+			width: 120px;
+		}
+
+		.paginacao {
+			margin-top: 2%;
+			
+		}
+		.cor {
+			color: white;
+            background-color: #FFAFCC;
 		}
 	</style>
 	<title>Vagas</title>
@@ -125,16 +148,15 @@
 			<nav>
 				<div class="nav-container">
 					<a> <img id="logo" src="images/logo1.png" alt="">
-					</a> <i class="fas fa-bars btn-menumobile"></i>
 					<ul>
 						<li><a href="/index">
-								<button id="home">Home</button>
+								<button class="home">Home</button>
 							</a></li>
 						<li><a href="/listarVagas">
-								<button id="vagas">Vagas</button>
+								<button class="home" id="vagas">Vagas</button>
 							</a></li>
 						<li><a href="/quemSomos">
-								<button id="quem">Quem Somos</button>
+								<button class="home">Quem Somos</button>
 							</a></li>
 					</ul>
 				</div>
@@ -145,11 +167,11 @@
 	<div>
 		<form action="/pesquisaVaga" method="post">
 			<input name="nome" class="form" placeholder="Pesquisar">
-			<button type="submit" class="btn btn-outline-info">buscar</button>
+			<button type="submit" class="btn btn-outline-light botao" id="busca">Buscar</button>
 		</form>
 	</div>
 	<div>
-		<h1>Vagas Front-end</h1>
+		<h2>Vagas Disponíveis</h2>
 	</div>
 
 	<div class="row">
@@ -159,7 +181,7 @@
 					<h5 class="card-title" th:text="${vaga.nome}"></h5>
 					<h6 class="card-subtitle mb-2 text-muted" th:text="${vaga.cidade}"></h6>
 					<p class="card-text" th:text="${vaga.descricaoLimitada}"></p>
-					<a th:href="@{/detalheVaga(codigo=${vaga.codVaga})}" class="btn btn-info">Mais detalhes</a>
+					<a th:href="@{/detalheVaga(codigo=${vaga.codVaga})}" class="btn btn-outline-light botao">Mais detalhes</a>
 
 				</div>
 			</div>
@@ -167,13 +189,12 @@
 
 
 
-		<div>
+		<div class="paginacao">
 			<ul class="pagination">
-				<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-				<li class="page-item"><a class="page-link" href="/listarVagas?page=0">1</a></li>
-				<li class="page-item"><a class="page-link" href="/listarVagas?page=1">2</a></li>
-				<li class="page-item"><a class="page-link" href="/listarVagas?page=2">3</a></li>
-				<li class="page-item"><a class="page-link" href="#">Next</a></li>
+				<li class="page-item"><a class="page-link cor" href="/listarVagas?page=0">1</a></li>
+				<li class="page-item"><a class="page-link cor" href="/listarVagas?page=1">2</a></li>
+				<li class="page-item"><a class="page-link cor" href="/listarVagas?page=2">3</a></li>
+	
 			</ul>
 
 		</div>

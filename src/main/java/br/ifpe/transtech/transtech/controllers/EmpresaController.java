@@ -62,7 +62,7 @@ public class EmpresaController {
     }
 
     @GetMapping("/formEmpresa")
-    public String formEmpresa() {
+    public String formEmpresa(Vaga vaga) {
         return "form-empresa";
     }
 }

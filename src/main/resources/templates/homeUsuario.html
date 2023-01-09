@@ -8,8 +8,8 @@
     <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
 
     <style>
-        body {
-            background-image: linear-gradient(to right, #FBF0F8 20%, #FFAFCC 44.27%, #FFAFCC 50%, #FBF0F8 80%);
+        #tela-principal {
+          background-color: #FBF0F8;  
         }
 
         header {
@@ -81,12 +81,26 @@
             color: #A2D2FF;
         }
 
+        .container {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .principal1 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 20px;
+            padding-right: 150px;
+            margin-right: 40%;
+            margin-top: 10%;
+        }
+
         /*-----------------------------------------------*/
     </style>
     <title>Feed Usuário</title>
 </head>
 
-<body>
+<body id="tela-principal">
 
     <div class="container">
         <header>
@@ -94,6 +108,15 @@
                 <div class="nav-container">
                     <img id="logo" src="images/logo1.png" alt="">
                     <i class="fas fa-bars btn-menumobile"></i>
+                   
+                    <ul>
+                        <li>
+                    <form action="/logout" method="post">
+                        <button id="vaga" type="submit">Sair</button>
+                    </form>
+                </li>
+                </ul>
+                    
                     <ul>
                         <li>
                             <a href="/listarVagas">
@@ -102,16 +125,22 @@
                         </li>
 
                     </ul>
+                    
                 </div>
             </nav>
         </header>
     </div>
 
-    <br><br><br><br><br><br>
-    Usuário
-    <form action="/logout" method="post">
-        <button type="submit">Sair</button>
-    </form>
+    
+    <div class="container">
+        <div class="principal1">
+            <h2 class="teste">Seja bem vindo ao nosso site!</h2>
+            <p>Chegou a hora de ingressar no mercado de tecnologia, a<br>
+                TransTech vem preparando esse espaço pra te receber e<br>
+                agora só falta você se cadastrar na nossa plataforma!</p>
+        </div>
+
+    
 </body>
 
 </html>

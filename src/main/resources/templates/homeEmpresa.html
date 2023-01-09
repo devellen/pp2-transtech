@@ -87,6 +87,12 @@
         .nav-container li button:hover {
             color: #A2D2FF;
         }
+        .container {
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: center;
+			align-items: center;
+		}
         /*---------------------------------------*/
 
         .div-card {
@@ -120,22 +126,27 @@
             <nav>
                 <div class="nav-container">
                     <img id="logo" src="images/logo1.png" alt="">
+
+                    <ul>
+                       
+                    <li>
+                        <a href="/formEmpresa">
+                            <button  class="btn btn-outline-light botao">Nova Vaga</button>
+                        </a>
+                    </li>
+
+                    <li>
+                        <form action="/logout" method="post">
+                            <button  type="submit">Sair</button>
+                        </form>
+                    </li>
+                    </ul>
+                    </div>
                 </div>
             </nav>
         </header>
     </div>
     Empresa
-    <form action="/logout" method="post">
-        <button type="submit">Sair</button>
-    </form>
-
-    <div>
-        <a href="/formEmpresa">
-            <button id="entrar2" class="btn btn-outline-light botao">Cadastrar vaga</button>
-        </a>
-        <br>
-        <br>
-    </div>
 
     <div class="row">
         <div class="col-sm-4 div-card" th:each="vaga : ${listaVaga}">

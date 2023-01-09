@@ -14,6 +14,74 @@
 			background-image: linear-gradient(to right, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 80%);
 			font-family: 'Nunito', sans-serif;
 		}
+		header {
+            position: relative;
+            top: 0;
+            height: auto;
+            width: 100%;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 60px;
+            width: 100%;
+            z-index: 1;
+            background-color: #FBF0F8;
+            box-shadow: 0px 3px 8px #615f5f8d;
+        }
+
+        nav:after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #logo {
+            width: 60px;
+            height: 60px;
+            margin-top: 0;
+            margin-left: -12%;
+        }
+
+        .nav-container ul {
+            float: right;
+            height: 100px;
+            line-height: 100px;
+            margin-top: -15px;
+        }
+
+        .nav-container ul li {
+            list-style: none;
+            float: left;
+            margin: 0 30px;
+        }
+
+        .nav-container li button {
+            text-decoration: none;
+            color: #666;
+            transition: .5s;
+            width: 154.31px;
+            height: 37.41px;
+            font-family: 'K2D', sans-serif;
+            font-size: 20px;
+            color: #FFAFCC;
+            background-color: #FBF0F8;
+            border: 3px solid #FFAFCC;
+            border-radius: 55px;
+        }
+
+        .nav-container li button:hover {
+            color: #A2D2FF;
+        }
 
 		h2 {
 			margin-top: 5%;
@@ -28,6 +96,7 @@
 			background-color: #fbf0f8bc;
 			border: none;
 			backface-visibility: visible;
+			margin-top: 8%;
 		}
 
 		.form-empresa {
@@ -63,7 +132,7 @@
             height: 37.41px;
             font-size: 15px;
             border-radius: 55px;
-            margin-top: 50px;
+            margin-top: 30px;
         }
 
 		.limpar{
@@ -73,18 +142,37 @@
 	</style>
 	<title>Cadastro de Vagas</title>
 </head>
+<body>
+
+	<div class="container">
+        <header>
+            <nav>
+                <div class="nav-container">
+                    <a>
+                        <img id="logo" src="images/logo1.png" alt="">
+                    </a>
+                    <i class="fas fa-bars btn-menumobile"></i>
+                    <ul>
+                        <li>
+                            <a href="/homeEmpresa">
+                                <button id="vagas">Vagas</button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 <div class="pure-u-1 pure-u-md-1-3">
 
 	<center>
-		<h2>Preencha os dados para a inscrição</h2>
 		<fieldset class="field">
+			<h2>Preencha os dados para a inscrição</h2>
 			<form action="/salvarVaga" method="post" class="pure-form pure-form-stacked">
 
 				<input type="text" name="nome" class="form-empresa" placeholder="Cargo" size="40" required> <br />
 				<input type="text" name="descricao" class="form-empresa" placeholder="Descrição da vaga" size="30"
 					required> <br />
 				<input type="text" name="salario" class="form-empresa" placeholder="Salário" size="40"><br />
-				<input type="datetime" name="horario" class="form-empresa" placeholder="Horário" size="30"> <br />
+				<input type="text" name="horario" class="form-empresa" placeholder="Horário" size="30"> <br />
 				<select name="cidade" class="form-empresa" required>
 					<option value="Recife">Recife</option>
 					<option value="Jaboatao">Jaboatão</option>

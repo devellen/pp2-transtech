@@ -13,8 +13,7 @@
 
 
         body {
-            background-color: #FBF0F8;
-            font-family: 'K2D', sans-serif;
+            background-image: linear-gradient(to right, #FBF0F8 20%, #FFAFCC 44.27%, #FFAFCC 50%, #FBF0F8 80%);
         }
 
         header {
@@ -88,6 +87,34 @@
         .vaga {
         margin-top: 8%;
         }
+        .field {
+            width: 400px;
+            height: 500px;
+            margin: 0px auto;
+            margin-top: 12%;
+            border-radius: 50px;
+            background-color: #fbf0f8bc;
+            border: none;
+            backface-visibility: visible;
+        }
+
+        .btn-cadastrar {
+            color: #F2F2F2;
+            background-color: #FFAFCC;
+            box-shadow: 0 4px 4px 0 #00000044;
+            border: none;
+            font-family: 'K2D', sans-serif;
+            width: 154.31px;
+            height: 37.41px;
+            font-size: 20px;
+            border-radius: 55px;
+            margin-top: 20px;
+        }
+        .principal1 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 15px;
+            padding-right: 5px;
+        }
     </style>
     <title>Detalhe da vaga</title>
 </head>
@@ -109,19 +136,22 @@
                     </ul>
                 </div>
             </nav>
-        </header>
-
-        <div>
+        <center>
+            <fieldset class="field">
+        <div class="principal1">
             <h2 class="vaga" th:text="${lista2.nome}"></h2>
-            <h5 th:text="${lista2.cidade}"></h5>
-            <p th:text="${lista2.descricao}"></p>
-            <p th:text="${lista2.salario}"></p>
-            <p th:text="${lista2.horario}"></p>
+          Cidade:  <h3 th:text="${lista2.cidade}"></h3>
+           Descrição: <p th:text="${lista2.descricao}"></p>
+           Salário: <p th:text="${lista2.salario}"></p>
+           Carga Horária: <p th:text="${lista2.horario}"></p>
         </div>
 
-        <div class="principal2">
+        <div >
             <a href="/formUsuario">
-              <br>  <button id="entrar2">Candidatar-se</button>
+              <br>  <button class="btn-cadastrar">Candidatar-se</button>
             </a></div>
+
+            </fieldset>
+            </center>
 </body>
 </html>

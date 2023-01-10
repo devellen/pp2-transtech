@@ -2,19 +2,20 @@
 <html lang="pt-br">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
-	<style>
-		@import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
-		@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
-		body {
-			background-image: linear-gradient(to right, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 80%);
-			font-family: 'Nunito', sans-serif;
-		}
-		header {
+        body {
+            background-image: linear-gradient(to right, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 80%);
+            font-family: 'Nunito', sans-serif;
+        }
+
+        header {
             position: relative;
             top: 0;
             height: auto;
@@ -83,46 +84,47 @@
             color: #A2D2FF;
         }
 
-		h2 {
-			margin-top: 5%;
+        h2 {
+            margin-top: 5%;
+            color: #615f5fd6;
 
-		}
+        }
 
-		.field {
-			width: 400px;
-			height: 500px;
-			margin: 0px auto;
-			border-radius: 50px;
-			background-color: #fbf0f8bc;
-			border: none;
-			backface-visibility: visible;
-			margin-top: 8%;
-		}
+        .field {
+            width: 400px;
+            height: 500px;
+            margin: 0px auto;
+            border-radius: 50px;
+            background-color: #fbf0f8bc;
+            border: none;
+            backface-visibility: visible;
+            margin-top: 8%;
+        }
 
-		.form-empresa {
-			border: none;
-			color: #f2f2f2;
-			background-color: #A2D2FF;
-			width: 270px;
-			height: 40px;
-			border-radius: 55px;
-			margin-top: 30px;
-			padding-left: 10px;
-		}
+        .form-empresa {
+            border: none;
+            color: #f2f2f2;
+            background-color: #A2D2FF;
+            width: 270px;
+            height: 40px;
+            border-radius: 55px;
+            margin-top: 20px;
+            padding-left: 10px;
+        }
 
-		input::placeholder {
-			color: #F2F2F2;
-			font-family: 'Nunito', sans-serif;
-			font-size: 14px;
-		}
+        input::placeholder {
+            color: #F2F2F2;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+        }
 
-		select {
-			color: #F2F2F2;
-			font-family: 'Nunito', sans-serif;
-			font-size: 14px;
-		}
+        select {
+            color: #F2F2F2;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+        }
 
-		.btn-cadastrar {
+        .btn-cadastrar {
             color: #F2F2F2;
             background-color: #A2D2FF;
             box-shadow: 0 4px 4px 0 #00000044;
@@ -132,26 +134,26 @@
             height: 37.41px;
             font-size: 15px;
             border-radius: 55px;
-            margin-top: 30px;
+            margin-top: 15px;
         }
 
-		.limpar{
-			background-color: #F2F2F2;
+        .limpar {
+            background-color: #F2F2F2;
             color: #A2D2FF;
-		}
-	</style>
-	<title>Cadastro de Vagas</title>
+        }
+    </style>
+    <title>Cadastro de Vagas</title>
 </head>
+
 <body>
 
-	<div class="container">
+    <div class="container">
         <header>
             <nav>
                 <div class="nav-container">
                     <a>
                         <img id="logo" src="images/logo1.png" alt="">
                     </a>
-                    <i class="fas fa-bars btn-menumobile"></i>
                     <ul>
                         <li>
                             <a href="/homeEmpresa">
@@ -161,29 +163,35 @@
                     </ul>
                 </div>
             </nav>
-<div class="pure-u-1 pure-u-md-1-3">
+    </div>
+    
+    <div>
 
-	<center>
-		<fieldset class="field">
-			<h2>Preencha os dados para a inscrição</h2>
-			<form action="/salvarVaga" th:object="${vaga}" method="post">
-                <input type="hidden" th:field="*{codVaga}" name="codVaga">
+        <center>
+            <fieldset class="field">
+                <h2>Preencha os dados para a inscrição</h2>
+                <form action="/salvarVaga" th:object="${vaga}" method="post">
+                    <input type="hidden" th:field="*{codVaga}" name="codVaga">
 
-				<input type="text" th:field="*{nome}" name="nome" class="form-empresa" placeholder="Cargo" size="40" required> <br />
-				<input type="text" th:field="*{descricao}" name="descricao" class="form-empresa" placeholder="Descrição da vaga" size="30"
-					required> <br />
-				<input type="text" th:field="*{salario}" name="salario" class="form-empresa" placeholder="Salário" size="40"><br />
-				<input type="text" th:field="*{horario}" name="horario" class="form-empresa" placeholder="Horário" size="30"> <br />
-				<select th:field="*{cidade}" name="cidade" class="form-empresa" required>
-					<option th:value="''">Selecione</option>
-					<option th:each="cidade : ${T(br.ifpe.transtech.transtech.model.Cidade).values()}" th:text="${cidade}" th:value="${cidade}"></option>
-				</select> <br />
-				<button type="submit" class="btn-cadastrar">Realizar Cadastro</button>
-				<button type="reset" class="btn-cadastrar limpar">Limpar dados</button>
-			</form>
-		</fieldset>
-	</center>
-</div>
+                    <input type="text" th:field="*{nome}" name="nome" class="form-empresa" placeholder="Cargo" size="40"
+                        required> <br />
+                    <input type="text" th:field="*{descricao}" name="descricao" class="form-empresa"
+                        placeholder="Descrição da vaga" size="30" required> <br />
+                    <input type="text" th:field="*{salario}" name="salario" class="form-empresa" placeholder="Salário"
+                        size="40"><br />
+                    <input type="text" th:field="*{horario}" name="horario" class="form-empresa"
+                        placeholder="Carga Horária" size="30"> <br />
+                    <select th:field="*{cidade}" name="cidade" class="form-empresa" required>
+                        <option th:value="''">Selecione</option>
+                        <option th:each="cidade : ${T(br.ifpe.transtech.transtech.model.Cidade).values()}"
+                            th:text="${cidade}" th:value="${cidade}"></option>
+                    </select> <br />
+                    <button type="submit" class="btn-cadastrar">Realizar Cadastro</button>
+                    <button type="reset" class="btn-cadastrar limpar">Limpar dados</button>
+                </form>
+            </fieldset>
+        </center>
+    </div>
 </body>
 
 </html>

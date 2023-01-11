@@ -65,7 +65,7 @@ public class TransTechController {
     public String detalheVaga(Integer codigo, Model model) {
     	 Vaga id= daoVaga.findById(codigo).orElse(null);
     	System.out.println(id);
-        model.addAttribute("lista2", id);
+        model.addAttribute("vaga", id);
         return "detalheVaga";
     }
     
@@ -73,8 +73,22 @@ public class TransTechController {
     public String detalheVagaEmpresa(Integer codigo, Model model) {
     	 Vaga id= daoVaga.findById(codigo).orElse(null);
     	System.out.println(id);
-        model.addAttribute("lista2", id);
+        model.addAttribute("vaga", id);
         return "detalheVagaEmpresa";
+    }
+
+    @GetMapping("/editarVaga")
+    public String editarVaga(Integer codigo, Model model) {
+    	 Vaga id= daoVaga.findById(codigo).orElse(null);
+    	System.out.println(id);
+        model.addAttribute("vaga", id);
+        return "form-empresa";
+    }
+    
+    @GetMapping("/deletarVaga")
+    public String deletarVaga(Integer codigo) {
+    	this.daoVaga.deleteById(codigo);
+		return "redirect:/homeEmpresa";
     }
 
     @GetMapping("/listarCandidatura")

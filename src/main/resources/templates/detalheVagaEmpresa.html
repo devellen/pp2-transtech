@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
-<title>Detalhe Empresa</title>
+    <meta charset="ISO-8859-1">
+    <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
+    <title>Detalhe Empresa</title>
 
-<style>
-	@import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
-	@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
-	body {
-		background-image: linear-gradient(to right, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 80%);
-		font-family: 'Nunito', sans-serif;
-	}
+        body {
+            background-image: linear-gradient(to right, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 80%);
+            font-family: 'Nunito', sans-serif;
+        }
 
-	header {
+        header {
             position: relative;
             top: 0;
             height: auto;
@@ -83,69 +84,81 @@
             color: #A2D2FF;
         }
 
-	h2 {
-		margin-top: 5%;
+        /*------------------------------------------*/
 
-	}
+        h2 {
+            margin-top: 5%;
 
-	.field {
-		width: 400px;
-		height: 500px;
-		margin: 0px auto;
-		border-radius: 50px;
-		background-color: #fbf0f8bc;
-		border: none;
-		backface-visibility: visible;
-		margin-top:5%;
-	}
+        }
 
-	.form-empresa {
-		border: none;
-		color: #f2f2f2;
-		background-color: #A2D2FF;
-		width: 270px;
-		height: 40px;
-		border-radius: 55px;
-		margin-top: 30px;
-		padding-left: 10px;
-	}
+        .field {
+            width: 400px;
+            height: 500px;
+            margin: 0px auto;
+            border-radius: 50px;
+            background-color: #fbf0f8bc;
+            border: none;
+            backface-visibility: visible;
+            margin-top: 5%;
+        }
 
-	input::placeholder {
-		color: #F2F2F2;
-		font-family: 'Nunito', sans-serif;
-		font-size: 14px;
-	}
+        .form-empresa {
+            border: none;
+            color: #f2f2f2;
+            background-color: #A2D2FF;
+            width: 270px;
+            height: 40px;
+            border-radius: 55px;
+            margin-top: 30px;
+            padding-left: 10px;
+        }
 
-	select {
-		color: #F2F2F2;
-		font-family: 'Nunito', sans-serif;
-		font-size: 14px;
-	}
+        input::placeholder {
+            color: #F2F2F2;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+        }
 
-	.btn-cadastrar {
-		color: #F2F2F2;
-		background-color: #A2D2FF;
-		box-shadow: 0 4px 4px 0 #00000044;
-		border: none;
-		font-family: 'K2D', sans-serif;
-		width: 154.31px;
-		height: 37.41px;
-		font-size: 15px;
-		border-radius: 55px;
-		margin-top: 50px;
-	}
+        select {
+            color: #F2F2F2;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+        }
 
-	
-	.principal1 {
+        .btn-cadastrar {
+            color: #F2F2F2;
+            background-color: #A2D2FF;
+            box-shadow: 0 4px 4px 0 #00000044;
+            border: none;
+            font-family: 'K2D', sans-serif;
+            width: 100px;
+            height: 37.41px;
+            font-size: 15px;
+            border-radius: 55px;
+            margin-top: 50px;
+        }
+
+        .btn {
+            margin-top: 2%;
+            margin-left: 80%;
+        }
+
+
+        .principal1 {
             font-family: 'Nunito', sans-serif;
             font-size: 15px;
-			margin-left: 5px;
+            margin-left: 5px;
         }
-</style>
+
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
+
 <body class="body">
 
-	<div class="container">
+    <div class="container">
         <header>
             <nav>
                 <div class="nav-container">
@@ -162,21 +175,35 @@
                     </ul>
                 </div>
             </nav>
-	<center>
-	<fieldset class="field">
-	<div class="principal1">
-		<h2 class="vaga" th:text="${lista2.nome}"></h2>
-		Cidade:<h3 th:text="${lista2.cidade}"></h3>
-		Descrição:<p th:text="${lista2.descricao}"></p>
-		Salário:<p th:text="${lista2.salario}"></p>
-		Carga Horária:<p th:text="${lista2.horario}"></p>
-	</div>
 
-	<div class="principal2">
-		<a href="#">
-		  <br>  <button class="btn-cadastrar" id="entrar2">Candidaturas</button>
-		</a></div>
-	</fieldset>
-</center>
+            <div class="btn">
+                <a th:href="@{/editarVaga(codigo=${vaga.codVaga})}">
+                    <button class="btn-cadastrar">Editar</button>
+                </a>
+
+
+                <a th:href="@{/deletarVaga(codigo=${vaga.codVaga})}"> 
+                    <button class="btn-cadastrar">Excluir</button>
+                </a>
+            </div>
+
+            <center>
+                <fieldset class="field">
+                    <div class="principal1">
+                        <h2 class="vaga" th:text="${vaga.nome}"></h2>
+                        Cidade:<h3 th:text="${vaga.cidade}"></h3>
+                        Descrição:<p th:text="${vaga.descricao}"></p>
+                        Salário:<p th:text="${vaga.salario}"></p>
+                        Carga Horária:<p th:text="${vaga.horario}"></p>
+                    </div>
+
+                    <div class="principal2">
+                        <a href="#">
+                            <br> <button class="btn-cadastrar" id="entrar2">Candidaturas</button>
+                        </a>
+                    </div>
+                </fieldset>
+            </center>
 </body>
+
 </html>

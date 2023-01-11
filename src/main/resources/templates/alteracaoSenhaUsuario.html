@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +13,7 @@
     <title>Entrar</title>
     <style>
         body {
-            background-image: linear-gradient(to right, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 80%);
+            background-image: linear-gradient(to right, #FBF0F8 20%, #FFAFCC 44.27%, #FFAFCC 50%, #FBF0F8 80%);
         }
 
         header {
@@ -90,7 +89,7 @@
 
         .field {
             width: 400px;
-            height: 500px;
+            height: 350px;
             margin: 0px auto;
             margin-top: 12%;
             border-radius: 50px;
@@ -108,7 +107,7 @@
         .input-empresa {
             border: none;
             color: #f2f2f2;
-            background-color: #A2D2FF;
+            background-color: #FFAFCC;
             width: 270px;
             height: 40px;
             border-radius: 55px;
@@ -124,7 +123,7 @@
 
         .btn-entrar {
             color: #F2F2F2;
-            background-color: #A2D2FF;
+            background-color: #FFAFCC;
             box-shadow: 0 4px 4px 0 #00000044;
             border: none;
             font-family: 'K2D', sans-serif;
@@ -140,8 +139,8 @@
             font-family: 'K2D', sans-serif;
         }
     </style>
+    <title>Document</title>
 </head>
-
 <body>
     <div class="container">
         <header>
@@ -175,29 +174,22 @@
         <center>
             <fieldset class="field">
                 <img id="logo-cadastro" src="images/logo2.png" alt="">
-                <form action="/efetuarLoginEmpresa" method="post">
+                <form action="/alteracaoSenhaUsuario" method="post">
+                    <br>
+                    <div>
+                        <input type="text" name="codRecuperacao" class="input-empresa" placeholder="Código de recuperação">
+                    </div>
                     <div>
                         <input type="text" name="email" class="input-empresa" placeholder="Digite o seu e-mail"
-                            required /> <br>
-                        <input type="password" name="senha" class="input-empresa" placeholder="Digite a sua senha"
                             required />
                     </div>
                     <div>
-                        <button type="submit" class="btn-entrar">Entrar</button>
+                        <input type="password" name="senha" class="input-empresa" placeholder="Digite a sua nova senha"
+                            required />
                     </div>
-                    <br>
                     <div>
-                        <a href="/redefinirSenha">Redifinir a senha</a>
+                        <button type="submit" class="btn-entrar">Alterar a senha</button>
                     </div>
-                </form>
-
-                <br>
-                <br><br>
-                <h3>AINDA NÃO TEM CONTA?</h3>
-                <a href="/cadastroEmpresa">
-                    <button id="entrar2" class="btn-entrar">Cadastrar</button>
-                </a>
-                </div>
                 <div>
                     <center>
                         <img class="img2" src="images/linkedin.png" alt="">
@@ -209,5 +201,4 @@
         </center>
     </section>
 </body>
-
 </html>

@@ -38,6 +38,11 @@ public class UsuarioController {
         return "index";
     }
 
+    @GetMapping("/alteracaoSenhaUsuario")
+    public String alteracaoSenhaUsuario(){
+        return "alteracaoSenhaUsuario";
+    }
+
     @PostMapping("/efetuarLoginUsuario")
     public String efetuarLoginUsuario(String email, String senha, RedirectAttributes ra, HttpSession session) {
         Usuario usuario = this.daoUsu.findByEmailAndSenha(email, senha);
@@ -48,6 +53,20 @@ public class UsuarioController {
             ra.addFlashAttribute("mensagemErro", "Usuário/senha inválidos");
             return "redirect:/";
         }
+    }
+
+    @PostMapping("/alteracaoSenhaUsuario")
+    public String alterarSenhaEmpresa(long codRecuperacao, String email, String senha, RedirectAttributes ra) {
+        Usuario usuario = this.daoUsu.findByEmailAndCodRecuperacao(email, codRecuperacao);
+        if(usuario == null) {
+            ra.addFlashAttribute("mensagemErro", "Usuário/senha inválidos");
+            return "redirect:/";
+        } else {
+            usuario.setSenha(senha);
+            daoUsu.save(usuario);
+        }
+        System.out.println(usuario);
+        return "alterarSenhaEmpresa";
     }
 
     @GetMapping("/formUsuario")

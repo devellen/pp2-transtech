@@ -22,7 +22,14 @@ public class Usuario {
     private String telefone;
     private String email;
     private String senha;
+    private long codRecuperacao;
 
+    public long getCodRecuperacao() {
+        return codRecuperacao;
+    }
+    public void setCodRecuperacao(long codRecuperacao) {
+        this.codRecuperacao = codRecuperacao;
+    }
     @ManyToMany
     List<Vaga> vagas;
 

@@ -14,7 +14,14 @@ public class Empresa {
     private String email;
     private Endereco endereco;
     private String senha;
+    private long codRecuperacao;
 
+    public long getCodRecuperacao() {
+        return codRecuperacao;
+    }
+    public void setCodRecuperacao(long codRecuperacao) {
+        this.codRecuperacao = codRecuperacao;
+    }
 
     public Integer getCodigo() {
         return codigo;

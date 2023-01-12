@@ -2,6 +2,7 @@ package br.ifpe.transtech.transtech.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.bind.DefaultValue;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,8 +15,8 @@ import br.ifpe.transtech.transtech.model.Empresa;
 import br.ifpe.transtech.transtech.model.Usuario;
 import br.ifpe.transtech.transtech.model.Vaga;
 import br.ifpe.transtech.transtech.model.VagaDao;
-
 import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 public class TransTechController {
@@ -44,11 +45,18 @@ public class TransTechController {
     }
 
     @GetMapping("/listarVagas")
-    public String listarVagas( @DefaultValue("1") Integer page, Model model) {
+    public String listarVagas( @DefaultValue("1") Integer page, Model model, HttpSession session ) {
     	if (page == null) {
     		page = 0;
     	}
-        model.addAttribute("lista", daoVaga.findAll(PageRequest.of(page, 6)));
+    	
+    	Page <Vaga> vagas= daoVaga.findAll(PageRequest.of(page, 6));
+    	Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+    	for (Vaga x : vagas) {
+    		x.setVagaPreenchida(this.daoCandidatura.existsByVagaAndUsuario(x, usuario));
+    	}
+        model.addAttribute("lista", vagas);
+        
         return "vagas";
     }
 
@@ -74,6 +82,7 @@ public class TransTechController {
     	 Vaga id= daoVaga.findById(codigo).orElse(null);
     	System.out.println(id);
         model.addAttribute("vaga", id);
+        model.addAttribute("candidaturas", this.daoCandidatura.findByVaga(id) );
         return "detalheVagaEmpresa";
     }
 
@@ -82,6 +91,7 @@ public class TransTechController {
     	 Vaga id= daoVaga.findById(codigo).orElse(null);
     	System.out.println(id);
         model.addAttribute("vaga", id);
+        model.addAttribute("candidaturas", this.daoCandidatura.findByVaga(id) );
         return "form-empresa";
     }
     
@@ -89,12 +99,6 @@ public class TransTechController {
     public String deletarVaga(Integer codigo) {
     	this.daoVaga.deleteById(codigo);
 		return "redirect:/homeEmpresa";
-    }
-
-    @GetMapping("/listarCandidatura")
-    public String listarCandidatura(Model model) {
-        model.addAttribute("lista", daoCandidatura.findAll());
-        return "index";
     }
 
     @GetMapping("/acessoNegado")
@@ -110,11 +114,11 @@ public class TransTechController {
 
     @PostMapping("/salvarInscricao")
     public String salvarCandidatura(Candidatura candidatura, HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("empresaLogado");
-        Candidatura.setUsuario(usuario);
+        Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+        candidatura.setUsuario(usuario);
         daoCandidatura.save(candidatura);
         System.out.println(candidatura);
-        return "homeEmpresa";
+        return "vagas";
     }
 
     @PostMapping("/pesquisaVaga")

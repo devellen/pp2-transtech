@@ -10,59 +10,42 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class Candidatura {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer codVaga; 
-    private String nome;
-    private int idade;
+    private Integer cod_vaga; 
     private String endereco;
-    private int telefone;
-    private String email;
     private Escolaridade escolaridade;
     @Lob
     private byte[] curriculo;
 
     @ManyToOne
+    private Vaga vaga;
+    
+    public Vaga getVaga() {
+		return vaga;
+	}
+    public void setVaga(Vaga vaga){
+        this.vaga = vaga;
+    }
+    @ManyToOne
     private Usuario usuario;
     public Usuario getUsuario() {
         return usuario;
     }
-    public static void setUsuario(Usuario usuario) {
-        usuario = usuario;
+    public  void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    
     }
     public Integer getCodVaga() {
-        return codVaga;
+        return cod_vaga;
     }
     public void setCodVaga(Integer codVaga) {
-        this.codVaga = codVaga;
+        this.cod_vaga = codVaga;
     }
-    public String getNome() {
-        return nome;
-    }
-    public int getIdade() {
-        return idade;
-    }
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    
     public String getEndereco() {
         return endereco;
     }
     public void setEndereco(String endereco) {
         this.endereco = endereco;
-    }
-    public int getTelefone() {
-        return telefone;
-    }
-    public void setTelefone(int telefone) {
-        this.telefone = telefone;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
     }
     public Escolaridade getEscolaridade() {
         return escolaridade;

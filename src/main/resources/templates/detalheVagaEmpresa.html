@@ -203,6 +203,11 @@
                         </a>
                     </div>
                 </fieldset>
+                <div th:each="cand:${candidaturas}">
+                    <h1 th:text="${cand.endereco}"></h1>
+                    <h1 th:text="${cand.usuario.nome}"></h1>
+                    <h1 th:text="${cand.usuario.email}"></h1>
+                    </div>
             </center>
 </body>
 

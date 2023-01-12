@@ -164,33 +164,28 @@
             </nav>
     </div>
     </div>
-    <form action="/salvarInscricao" method="post" class="pure-form pure-form-stacked">
-        <center>
-
-            <fieldset class="field">
-                Nome: <input type="text" name="nome" class="form-usuario" placeholder="nome" size="40" required> <br />
-                Idade: <input type="number" name="idade" class="form-usuario" placeholder="idade" size="30" required>
-                <br />
-                Endereço:<input type="text" name="endereco" class="form-usuario" placeholder="endereço" size="40"
-                    required><br />
-                Telefone: <input type="text" name="telefone" class="form-usuario" placeholder="telefone" size="30"
-                    required> <br />
-                Email:<input type="text" name="email" class="form-usuario" placeholder="email"
-                    size="40"><br />
-                Escolaridade: <select name="escolaridade" class="form-usuario" required>
-                    <option value="Fundamental">Fundamental</option>
-                    <option value="MedioIn">Médio Incompleto</option>
-                    <option value="Medio">Médio Completo</option>
-                    <option value="SuperiorIn">Suerior Incompleto</option>
-                    <option value="Superior">Superior Completo</option>
-                </select> <br />
-                <br> <label>Currículo: <input type="file" name="curriculo"></label>
-
-                <button type="submit" class="btn-cadastrar">Realizar Cadastro</button>
-                <button type="reset" class="btn-cadastrar limpar">Limpar dados</button>
-            </fieldset>
-        </center>
-    </form>
+    <fieldset class="field">
+        <form action="/salvarInscricao" method="post" th:object="${candidatura}" >
+            <center>
+                
+                    <input type="hidden" th:value="${vaga.codVaga}" name="vaga">
+                    <h2>Candidatar-Se</h2>
+                    Endereço:<input type="text" th:field="*{endereco}" name="endereco" class="form-usuario" placeholder="endereço" size="40"
+                        required><br />
+                    
+               Escolaridade:<select th:field="*{escolaridade}" name="escolaridade" class="form-usuario" required>
+                            <option th:value="''">Selecione</option>
+                            <option th:each="escolaridade : ${T(br.ifpe.transtech.transtech.model.Escolaridade).values()}"
+                                th:text="${escolaridade}" th:value="${escolaridade}"></option><br><br><br>
+                        </select>
+                   
+                  <div><br> <label>Currículo: <input type="file" name="curriculo"></label></div>  
+                   <div> <button type="reset" class="btn-cadastrar limpar">Limpar dados</button>
+                    <button type="submit" class="btn-cadastrar">Realizar Cadastro</button></div>
+                    
+            </center>
+        </form>
+    </fieldset>
 
 </body>
 

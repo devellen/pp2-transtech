@@ -182,6 +182,7 @@
 					<h6 class="card-subtitle mb-2 text-muted" th:text="${vaga.cidade}"></h6>
 					<p class="card-text" th:text="${vaga.descricaoLimitada}"></p>
 					<a th:href="@{/detalheVaga(codigo=${vaga.codVaga})}" class="btn btn-outline-light botao">Mais detalhes</a>
+					<button th:if="${vaga.vagaPreenchida}">ok</button>
 
 				</div>
 			</div>

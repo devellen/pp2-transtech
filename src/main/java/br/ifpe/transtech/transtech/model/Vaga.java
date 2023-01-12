@@ -15,6 +15,14 @@ public class Vaga {
     private double salario;
     private String horario;
     private Cidade cidade;
+    private transient boolean vagaPreenchida;
+    public boolean isVagaPreenchida() {
+		return vagaPreenchida;
+	}
+
+	public void setVagaPreenchida(boolean vagaPreenchida) {
+		this.vagaPreenchida = vagaPreenchida;
+	}
     @ManyToOne
     private Empresa empresa;
 

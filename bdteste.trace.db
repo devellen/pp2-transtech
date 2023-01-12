@@ -990,3 +990,6 @@ drop table empresa [90107-214]
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Unknown Source)
+2023-01-12 13:42:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CANDIDATURA" not found; SQL statement:
+insert into candidatura (cod_vaga, curriculo, endereco, escolaridade, usuario_cod_usuario, vaga_cod_vaga) values (default, ?, ?, ?, ?, ?) [42102-214]

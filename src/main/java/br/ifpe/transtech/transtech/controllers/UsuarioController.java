@@ -16,13 +16,12 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class UsuarioController {
-    
+
     @Autowired
     private UsuarioDAO daoUsu;
 
     @Autowired
     private VagaDao daoVaga;
-
 
     @GetMapping("/entrarUsu")
     public String entrarUsu() {
@@ -40,14 +39,25 @@ public class UsuarioController {
     }
 
     @PostMapping("/salvarUsuario")
-    public String salvarUsuario(Usuario usuario) {
-        daoUsu.save(usuario);
-        System.out.println(usuario);
-        return "index";
+    public String efetuarLoginUsuario(String email, String senha, Usuario usuario,
+            HttpSession session, RedirectAttributes ra) {
+        if (this.daoUsu.existsByEmail(usuario.getEmail())) {
+
+            ra.addFlashAttribute("msg", "usuario já cadastrado");
+            return "redirect:/index";
+
+        } else if (usuario.getEmail() == "" || usuario.getSenha() == "") {
+            ra.addFlashAttribute("msg", "Preencha todos os campos");
+            return "redirect:/cadastro-usuario";
+        } else {
+            this.daoUsu.save(usuario);
+            return "index";
+        }
+
     }
 
     @GetMapping("/alteracaoSenhaUsuario")
-    public String alteracaoSenhaUsuario(){
+    public String alteracaoSenhaUsuario() {
         return "alteracaoSenhaUsuario";
     }
 
@@ -64,9 +74,9 @@ public class UsuarioController {
     }
 
     @PostMapping("/alteracaoSenhaUsuario")
-    public String alterarSenhaEmpresa(long codRecuperacao, String email, String senha, RedirectAttributes ra) {
+    public String alterarSenhaUsuario(long codRecuperacao, String email, String senha, RedirectAttributes ra) {
         Usuario usuario = this.daoUsu.findByEmailAndCodRecuperacao(email, codRecuperacao);
-        if(usuario == null) {
+        if (usuario == null) {
             ra.addFlashAttribute("mensagemErro", "Usuário/senha inválidos");
             return "redirect:/";
         } else {
@@ -74,13 +84,13 @@ public class UsuarioController {
             daoUsu.save(usuario);
         }
         System.out.println(usuario);
-        return "alterarSenhaEmpresa";
+        return "alteracaoSenhaUsuario";
     }
 
     @GetMapping("/formUsuario")
-    public String formUsuario(Candidatura candidatura,Integer codigoVaga, Model model) {
-     Vaga vaga =  this.daoVaga.findById(codigoVaga).orElse(null);
-     model.addAttribute("vaga", vaga);
-    	return "form-usuario";
+    public String formUsuario(Candidatura candidatura, Integer codigoVaga, Model model) {
+        Vaga vaga = this.daoVaga.findById(codigoVaga).orElse(null);
+        model.addAttribute("vaga", vaga);
+        return "form-usuario";
     }
 }

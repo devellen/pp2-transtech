@@ -35,10 +35,20 @@ public class EmpresaController {
     }
 
     @PostMapping("/salvarEmpresa")
-    public String salvarEmpresa(Empresa empresa) {
-        daoEmp.save(empresa);
-        System.out.println(empresa);
-        return "index";
+    public String efetuarLoginEmpresa(String email, String senha, Empresa empresa,
+            HttpSession session, RedirectAttributes ra) {
+        if (this.daoEmp.existsByEmail(empresa.getEmail())) {
+
+            ra.addFlashAttribute("msg", "usuario já cadastrado");
+            return "redirect:/index";
+
+        } else if (empresa.getEmail() == "" || empresa.getSenha() == "") {
+            ra.addFlashAttribute("msg", "Preencha todos os campos");
+            return "redirect:/cadastro-usuario";
+        } else {
+            this.daoEmp.save(empresa);
+            return "index";
+        }
     }
 
     @GetMapping("/alteracaoSenhaEmpresa")

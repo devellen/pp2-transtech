@@ -993,3 +993,9 @@ drop table empresa [90107-214]
 2023-01-12 13:42:48 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CANDIDATURA" not found; SQL statement:
 insert into candidatura (cod_vaga, curriculo, endereco, escolaridade, usuario_cod_usuario, vaga_cod_vaga) values (default, ?, ?, ?, ?, ?) [42102-214]
+2023-01-12 23:15:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRICAO CHARACTER VARYING(255)": "U&'Pricipais Responsabilidades Participar da concep\\00e7\\00e3o das demandas, ent... (718)"; SQL statement:
+insert into vaga (cod_vaga, cidade, descricao, empresa_codigo, horario, nome, salario) values (default, ?, ?, ?, ?, ?, ?) [22001-214]
+2023-01-12 23:15:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRICAO CHARACTER VARYING(255)": "U&'Pricipais Responsabilidades Participar da concep\\00e7\\00e3o das demandas, ent... (718)"; SQL statement:
+insert into vaga (cod_vaga, cidade, descricao, empresa_codigo, horario, nome, salario) values (default, ?, ?, ?, ?, ?, ?) [22001-214]

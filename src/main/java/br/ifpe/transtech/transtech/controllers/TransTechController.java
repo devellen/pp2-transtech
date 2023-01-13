@@ -118,7 +118,7 @@ public class TransTechController {
         candidatura.setUsuario(usuario);
         daoCandidatura.save(candidatura);
         System.out.println(candidatura);
-        return "vagas";
+        return "redirect:/listarVagas?page=0";
     }
 
     @PostMapping("/pesquisaVaga")

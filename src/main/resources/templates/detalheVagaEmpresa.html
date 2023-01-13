@@ -4,11 +4,15 @@
 <head>
     <meta charset="ISO-8859-1">
     <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <title>Detalhe Empresa</title>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
 
         body {
             background-image: linear-gradient(to right, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 80%);
@@ -56,8 +60,8 @@
         .nav-container ul {
             float: right;
             height: 100px;
-            line-height: 100px;
-            margin-top: -15px;
+            line-height: 10px;
+            margin-top: 10px;
         }
 
         .nav-container ul li {
@@ -92,14 +96,14 @@
         }
 
         .field {
-            width: 400px;
+            width: 450px;
             height: 500px;
             margin: 0px auto;
             border-radius: 50px;
             background-color: #fbf0f8bc;
             border: none;
             backface-visibility: visible;
-            margin-top: 5%;
+            margin-top: 10%;
         }
 
         .form-empresa {
@@ -131,16 +135,12 @@
             box-shadow: 0 4px 4px 0 #00000044;
             border: none;
             font-family: 'K2D', sans-serif;
-            width: 100px;
+            width: 80px;
             height: 37.41px;
             font-size: 15px;
             border-radius: 55px;
             margin-top: 50px;
-        }
-
-        .btn {
-            margin-top: 2%;
-            margin-left: 80%;
+            text-decoration: none;
         }
 
 
@@ -165,7 +165,6 @@
                     <a>
                         <img id="logo" src="images/logo1.png" alt="">
                     </a>
-                    <i class="fas fa-bars btn-menumobile"></i>
                     <ul>
                         <li>
                             <a href="/homeEmpresa">
@@ -176,16 +175,7 @@
                 </div>
             </nav>
 
-            <div class="btn">
-                <a th:href="@{/editarVaga(codigo=${vaga.codVaga})}">
-                    <button class="btn-cadastrar">Editar</button>
-                </a>
 
-
-                <a th:href="@{/deletarVaga(codigo=${vaga.codVaga})}"> 
-                    <button class="btn-cadastrar">Excluir</button>
-                </a>
-            </div>
 
             <center>
                 <fieldset class="field">
@@ -197,18 +187,41 @@
                         Carga Horária:<p th:text="${vaga.horario}"></p>
                     </div>
 
-                    <div class="principal2">
-                        <a href="#">
-                            <br> <button class="btn-cadastrar" id="entrar2">Candidaturas</button>
+                    <div class="btn">
+                        <a th:href="@{/editarVaga(codigo=${vaga.codVaga})}">
+                            <button class="btn-cadastrar"><i class="bi bi-pencil-square"></i></button>
+                        </a>
+        
+        
+                        <a th:href="@{/deletarVaga(codigo=${vaga.codVaga})}">
+                            <button class="btn-cadastrar"><i class="bi bi-trash3"></i></button>
                         </a>
                     </div>
                 </fieldset>
-                <div th:each="cand:${candidaturas}">
-                    <h1 th:text="${cand.endereco}"></h1>
-                    <h1 th:text="${cand.usuario.nome}"></h1>
-                    <h1 th:text="${cand.usuario.email}"></h1>
-                    </div>
             </center>
+
+            <h3>Candidatos</h3>
+            <div>
+                <table class="table table-striped layout">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Endereço</th>
+                        <th>E-mail</th>
+                        <th>Telefone</th>
+                        <th>Curriculo</th>
+                    </tr>
+
+                    <tr th:each="cand:${candidaturas}">
+                        <td th:text="${cand.usuario.nome}"></td>
+                        <td th:text="${cand.endereco}"></td>
+                        <td th:text="${cand.usuario.email}"></td>
+                        <td th:text="${cand.usuario.telefone}"></td>
+                        <td th:text="${cand.curriculo}"></td>
+                    </tr>
+                </table>
+                <hr />
+            </div>
+
 </body>
 
 </html>

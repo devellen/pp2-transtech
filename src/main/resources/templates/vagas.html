@@ -13,6 +13,8 @@
 
 		@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
+		@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
 		#tela-principal {
 			background-color: #FBF0F8;
 			margin: 2%;
@@ -138,6 +140,16 @@
 			color: white;
             background-color: #FFAFCC;
 		}
+		h2 {
+			margin-top: 2%;
+		}
+
+		.btn-ok {
+			border: none;
+			background-color: #FFAFCC;
+			margin-left: 65%;
+			border-radius: 20%;
+		}
 	</style>
 	<title>Vagas</title>
 </head>
@@ -182,7 +194,7 @@
 					<h6 class="card-subtitle mb-2 text-muted" th:text="${vaga.cidade}"></h6>
 					<p class="card-text" th:text="${vaga.descricaoLimitada}"></p>
 					<a th:href="@{/detalheVaga(codigo=${vaga.codVaga})}" class="btn btn-outline-light botao">Mais detalhes</a>
-					<button th:if="${vaga.vagaPreenchida}">ok</button>
+					<button th:if="${vaga.vagaPreenchida}" class="btn-ok"><i class="bi bi-check"></i></button>
 
 				</div>
 			</div>

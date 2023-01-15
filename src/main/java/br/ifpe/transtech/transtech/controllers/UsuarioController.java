@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ifpe.transtech.transtech.model.Candidatura;
+import br.ifpe.transtech.transtech.model.EmpresaDAO;
 import br.ifpe.transtech.transtech.model.Usuario;
 import br.ifpe.transtech.transtech.model.UsuarioDAO;
 import br.ifpe.transtech.transtech.model.Vaga;
@@ -19,6 +20,9 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioDAO daoUsu;
+
+    @Autowired
+    private EmpresaDAO daoEmp;
 
     @Autowired
     private VagaDao daoVaga;
@@ -41,14 +45,13 @@ public class UsuarioController {
     @PostMapping("/salvarUsuario")
     public String efetuarLoginUsuario(String email, String senha, Usuario usuario,
             HttpSession session, RedirectAttributes ra) {
-        if (this.daoUsu.existsByEmail(usuario.getEmail())) {
-
-            ra.addFlashAttribute("msg", "usuario já cadastrado");
-            return "redirect:/index";
+        if (this.daoUsu.existsByEmail(usuario.getEmail()) || this.daoEmp.existsByEmail(usuario.getEmail())) {
+            ra.addFlashAttribute("msg", "E-mail já cadastrado");
+            return "redirect:/cadastroUsuario";
 
         } else if (usuario.getEmail() == "" || usuario.getSenha() == "") {
             ra.addFlashAttribute("msg", "Preencha todos os campos");
-            return "redirect:/cadastro-usuario";
+            return "redirect:/cadastroUsuario";
         } else {
             this.daoUsu.save(usuario);
             return "index";
@@ -62,21 +65,21 @@ public class UsuarioController {
     }
 
     @PostMapping("/efetuarLoginUsuario")
-    public String efetuarLoginUsuario(String email, String senha, Usuario usuario, HttpSession sessao, RedirectAttributes ra, HttpSession session) {
-        if(this.daoUsu.existsByEmailAndSenha(email, senha)) {
-			
-			sessao.setAttribute("usuarioLogado", true);
-			Usuario usuario2 = this.daoUsu.findByEmail(email);
-			sessao.setAttribute("email", usuario2.getEmail());
-			return "redirect:/homeUsuario";
-		}else if(usuario.getEmail()=="" || usuario.getSenha()=="") {
-			ra.addFlashAttribute("msg", "Preencha todos os campos");
-			return "redirect:/entrarUsu";
-		}
-		else {
-			ra.addFlashAttribute("msg", "Email ou Senha Incorretos");
-			return "redirect:/entrarUsu";
-		}
+    public String efetuarLoginUsuario(String email, String senha, HttpSession sessao,
+            RedirectAttributes ra, HttpSession session) {
+        this.daoEmp.findByEmailAndSenha(email, senha);
+        if (this.daoUsu.existsByEmailAndSenha(email, senha)) {
+            sessao.setAttribute("empresaLogado", true);
+            Usuario usuario2 = this.daoUsu.findByEmail(email);
+            sessao.setAttribute("email", usuario2.getEmail());
+            return "redirect:/homeUsuario";
+        } else if (email == "" || senha == "") {
+            ra.addFlashAttribute("msg", "Preencha todos os campos");
+            return "redirect:/entrarUsu";
+        } else {
+            ra.addFlashAttribute("msg", "E-mail ou Senha Incorretos");
+            return "redirect:/entrarUsu";
+        }
     }
 
     @PostMapping("/alteracaoSenhaUsuario")

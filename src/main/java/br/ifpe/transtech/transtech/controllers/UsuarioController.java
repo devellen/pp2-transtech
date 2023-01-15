@@ -62,15 +62,21 @@ public class UsuarioController {
     }
 
     @PostMapping("/efetuarLoginUsuario")
-    public String efetuarLoginUsuario(String email, String senha, RedirectAttributes ra, HttpSession session) {
-        Usuario usuario = this.daoUsu.findByEmailAndSenha(email, senha);
-        if (usuario != null) {
-            session.setAttribute("usuarioLogado", usuario);
-            return "redirect:/homeUsuario";
-        } else {
-            ra.addFlashAttribute("mensagemErro", "Usuário/senha inválidos");
-            return "redirect:/";
-        }
+    public String efetuarLoginUsuario(String email, String senha, Usuario usuario, HttpSession sessao, RedirectAttributes ra, HttpSession session) {
+        if(this.daoUsu.existsByEmailAndSenha(email, senha)) {
+			
+			sessao.setAttribute("usuarioLogado", true);
+			Usuario usuario2 = this.daoUsu.findByEmail(email);
+			sessao.setAttribute("email", usuario2.getEmail());
+			return "redirect:/homeUsuario";
+		}else if(usuario.getEmail()=="" || usuario.getSenha()=="") {
+			ra.addFlashAttribute("msg", "Preencha todos os campos");
+			return "redirect:/entrarUsu";
+		}
+		else {
+			ra.addFlashAttribute("msg", "Email ou Senha Incorretos");
+			return "redirect:/entrarUsu";
+		}
     }
 
     @PostMapping("/alteracaoSenhaUsuario")

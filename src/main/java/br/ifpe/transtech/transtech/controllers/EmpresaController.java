@@ -57,20 +57,26 @@ public class EmpresaController {
     }
 
     @PostMapping("/efetuarLoginEmpresa")
-    public String efetuarLoginEmpresa(String email, String senha, RedirectAttributes ra, HttpSession session) {
-        Empresa empresa = this.daoEmp.findByEmailAndSenha(email, senha);
-        if (empresa != null) {
-            session.setAttribute("empresaLogado", empresa);
-            return "redirect:/homeEmpresa";
-        } else {
-            ra.addFlashAttribute("mensagemErro", "Empresa/senha inválidos");
-            return "redirect:/";
-        }
+    public String efetuarLoginEmpresa(String email, String senha, Empresa empresa,HttpSession sessao, RedirectAttributes ra, HttpSession session) {
+        this.daoEmp.findByEmailAndSenha(email, senha);
+        if(this.daoEmp.existsByEmailAndSenha(email, senha)) {
+			sessao.setAttribute("empresaLogado", true);
+			Empresa empresa2 = this.daoEmp.findByEmail(email);
+			sessao.setAttribute("email", empresa2.getEmail());
+			return "redirect:/homeEmpresa";
+		}else if(empresa.getEmail()=="" || empresa.getSenha()=="") {
+			ra.addFlashAttribute("msg", "Preencha todos os campos");
+			return "redirect:/entrarEmp";
+		}
+		else {
+			ra.addFlashAttribute("msg", "Email ou Senha Incorretos");
+			return "redirect:/entrarEmp";
+		}
     }
 
     @PostMapping("/alteracaoSenhaEmpresa")
-    public String alterarSenhaEmpresa(long codRecuperacao, String email, String senha, RedirectAttributes ra) {
-        Empresa empresa = this.daoEmp.findByEmailAndCodRecuperacao(email, codRecuperacao);
+    public String alterarSenhaEmpresa(long codRecuperacao, String email, Empresa empresa, String senha, RedirectAttributes ra) {
+        this.daoEmp.findByEmailAndCodRecuperacao(email, codRecuperacao);
         if(empresa == null) {
             ra.addFlashAttribute("mensagemErro", "Empresa/senha inválidos");
             return "redirect:/";
@@ -83,8 +89,8 @@ public class EmpresaController {
     }
 
     @GetMapping("/homeEmpresa")
-    public String homeEmpresa(HttpSession session, Model model) {
-    	Empresa empresa = (Empresa) session.getAttribute("empresaLogado");
+    public String homeEmpresa(HttpSession session, Empresa empresa,Model model) {
+    	session.getAttribute("empresaLogado");
     	List <Vaga> listaVaga = daoVaga.listaVaga(empresa.getCodigo());
     	model.addAttribute("listaVaga", listaVaga);
         return "homeEmpresa";

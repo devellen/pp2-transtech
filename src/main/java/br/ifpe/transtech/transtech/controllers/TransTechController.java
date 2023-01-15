@@ -45,13 +45,13 @@ public class TransTechController {
     }
 
     @GetMapping("/listarVagas")
-    public String listarVagas( @DefaultValue("1") Integer page, Model model, HttpSession session ) {
+    public String listarVagas( @DefaultValue("1") Integer page, Model model, Usuario usuario, HttpSession session ) {
     	if (page == null) {
     		page = 0;
     	}
     	
     	Page <Vaga> vagas= daoVaga.findAll(PageRequest.of(page, 6));
-    	Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+    	session.getAttribute("usuarioLogado");
     	for (Vaga x : vagas) {
     		x.setVagaPreenchida(this.daoCandidatura.existsByVagaAndUsuario(x, usuario));
     	}
@@ -61,8 +61,8 @@ public class TransTechController {
     }
 
     @PostMapping("/salvarVaga")
-    public String salvarVaga(Vaga vaga, HttpSession session) {
-        Empresa empresa = (Empresa) session.getAttribute("empresaLogado");
+    public String salvarVaga(Vaga vaga, Empresa empresa, HttpSession session) {
+        session.getAttribute("empresaLogado");
         vaga.setEmpresa(empresa);
         daoVaga.save(vaga);
         System.out.println(vaga);
@@ -113,8 +113,8 @@ public class TransTechController {
 
 
     @PostMapping("/salvarInscricao")
-    public String salvarCandidatura(Candidatura candidatura, HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+    public String salvarCandidatura(Candidatura candidatura, Usuario usuario,HttpSession session) {
+        session.getAttribute("usuarioLogado");
         candidatura.setUsuario(usuario);
         daoCandidatura.save(candidatura);
         System.out.println(candidatura);

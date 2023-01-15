@@ -11,6 +11,7 @@ public class Vaga {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codVaga;
     private String nome;
+    private String nomeEmpresa;
     private String descricao;
     private double salario;
     private String horario;
@@ -49,6 +50,12 @@ public class Vaga {
     }
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    public String getNomeEmpresa() {
+        return nomeEmpresa;
+    }
+    public void setNomeEmpresa(String nomeEmpresa) {
+        this.nomeEmpresa = nomeEmpresa;
     }
     public String getDescricao() {
         return descricao;

@@ -173,6 +173,8 @@
                 <form action="/salvarVaga" th:object="${vaga}" method="post">
                     <input type="hidden" th:field="*{codVaga}" name="codVaga">
 
+                    <input type="text" th:field="*{nomeEmpresa}" name="nomeEmpresa" class="form-empresa" placeholder="Nome da Empresa" size="40"
+                    required> <br/>
                     <input type="text" th:field="*{nome}" name="nome" class="form-empresa" placeholder="Cargo" size="40"
                         required> <br />
                     <input type="text" th:field="*{descricao}" name="descricao" class="form-empresa"

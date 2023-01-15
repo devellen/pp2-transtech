@@ -193,6 +193,7 @@
 		<div class="col-sm-4 div-card" th:each="vaga : ${lista}">
 			<div class="card">
 				<div class="card-body">
+					<h5 class="card-title" th:text="${vaga.nomeEmpresa}"></h5>
 					<h5 class="card-title" th:text="${vaga.nome}"></h5>
 					<h6 class="card-subtitle mb-2 text-muted" th:text="${vaga.cidade}"></h6>
 					<p class="card-text" th:text="${vaga.descricaoLimitada}"></p>

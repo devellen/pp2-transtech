@@ -50,7 +50,7 @@ public class EmpresaController {
             return "redirect:/cadastroEmpresa";
         } else {
             this.daoEmp.save(empresa);
-            return "index";
+            return "entrarEmp";
         }
     }
 
@@ -60,9 +60,8 @@ public class EmpresaController {
     }
 
     @PostMapping("/efetuarLoginEmpresa")
-    public String efetuarLoginEmpresa(String email, String senha, Empresa empresa, HttpSession sessao,
+    public String efetuarLoginEmpresa(String email, String senha, HttpSession sessao,
             RedirectAttributes ra, HttpSession session) {
-        this.daoEmp.findByEmailAndSenha(email, senha);
         if (this.daoEmp.existsByEmailAndSenha(email, senha)) {
             sessao.setAttribute("empresaLogado", true);
             Empresa empresa2 = this.daoEmp.findByEmail(email);
@@ -72,18 +71,18 @@ public class EmpresaController {
             ra.addFlashAttribute("msg", "Preencha todos os campos");
             return "redirect:/entrarEmp";
         } else {
-            ra.addFlashAttribute("msg", "Email ou Senha Incorretos");
+            ra.addFlashAttribute("msg", "E-mail ou Senha Incorretos");
             return "redirect:/entrarEmp";
         }
     }
 
     @PostMapping("/alteracaoSenhaEmpresa")
-    public String alterarSenhaEmpresa(long codRecuperacao, String email, Empresa empresa, String senha,
+    public String alterarSenhaEmpresa(long codRecuperacao, String email, String senha,
             RedirectAttributes ra) {
-        this.daoEmp.findByEmailAndCodRecuperacao(email, codRecuperacao);
+        Empresa empresa = this.daoEmp.findByEmailAndCodRecuperacao(email, codRecuperacao);
         if (empresa == null) {
             ra.addFlashAttribute("mensagemErro", "Empresa/senha inválidos");
-            return "redirect:/alteracaoSenhaEmpresa";
+            return "redirect:/";
         } else {
             empresa.setSenha(senha);
             daoEmp.save(empresa);

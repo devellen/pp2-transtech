@@ -54,7 +54,7 @@ public class UsuarioController {
             return "redirect:/cadastroUsuario";
         } else {
             this.daoUsu.save(usuario);
-            return "index";
+            return "entrarUsu";
         }
 
     }
@@ -66,10 +66,11 @@ public class UsuarioController {
 
     @PostMapping("/efetuarLoginUsuario")
     public String efetuarLoginUsuario(String email, String senha, HttpSession sessao,
-            RedirectAttributes ra, HttpSession session) {
-        this.daoEmp.findByEmailAndSenha(email, senha);
-        if (this.daoUsu.existsByEmailAndSenha(email, senha)) {
-            sessao.setAttribute("empresaLogado", true);
+            RedirectAttributes ra) {
+        Usuario usuario = this.daoUsu.findByEmailAndSenha(email, senha);
+        if (this.daoUsu.existsByEmailAndSenha(email, senha) && usuario != null) {
+            sessao.setAttribute("usuarioLogado", true);
+            sessao.setAttribute("usuarioLogado", usuario);
             Usuario usuario2 = this.daoUsu.findByEmail(email);
             sessao.setAttribute("email", usuario2.getEmail());
             return "redirect:/homeUsuario";

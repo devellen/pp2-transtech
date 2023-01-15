@@ -207,16 +207,19 @@
                         <th>Nome</th>
                         <th>Endereço</th>
                         <th>E-mail</th>
-                        <th>Telefone</th>
-                        <th>Curriculo</th>
+                        <th>Formação</th>
+                        <th>Experiência</th>
+                        <th>Habilidade</th>
+
                     </tr>
 
                     <tr th:each="cand:${candidaturas}">
                         <td th:text="${cand.usuario.nome}"></td>
                         <td th:text="${cand.endereco}"></td>
                         <td th:text="${cand.usuario.email}"></td>
-                        <td th:text="${cand.usuario.telefone}"></td>
-                        <td th:src="${cand.curriculo}"></td>
+                        <td th:text="${cand.formacao}"></td>
+                        <td th:text="${cand.experiencia}"></td>
+                        <td th:text="${cand.habilidade}"></td>
                     </tr>
                 </table>
                 <hr />

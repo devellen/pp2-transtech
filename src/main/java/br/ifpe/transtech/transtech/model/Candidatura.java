@@ -13,8 +13,9 @@ public class Candidatura {
     private Integer cod_vaga; 
     private String endereco;
     private Escolaridade escolaridade;
-    @Lob
-    private byte[] curriculo;
+    private String formacao;
+    private String experiencia;
+    private String habilidade;
 
     @ManyToOne
     private Vaga vaga;
@@ -53,10 +54,25 @@ public class Candidatura {
     public void setEscolaridade(Escolaridade escolaridade) {
         this.escolaridade = escolaridade;
     }
-	public byte[] getCurriculo() {
-		return curriculo;
-	}
-	public void setCurriculo(byte[] curriculo) {
-		this.curriculo = curriculo;
-	}
+     public String getFormacao() {
+        return formacao;
+    }
+    public void setFormacao(String formacao) {
+        this.formacao = formacao;
+    }
+
+     public String getExperiencia() {
+        return experiencia;
+    }
+    public void setExperiencia(String experiencia) {
+        this.experiencia = experiencia;
+    }
+     public String getHabilidade() {
+        return habilidade;
+    }
+    public void setHabilidade(String habilidade) {
+        this.habilidade = habilidade;
+    }
+
+	
 }

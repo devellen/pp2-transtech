@@ -188,8 +188,9 @@
                         <option th:each="cidade : ${T(br.ifpe.transtech.transtech.model.Cidade).values()}"
                             th:text="${cidade}" th:value="${cidade}"></option>
                     </select> <br />
-                    <button type="submit" class="btn-cadastrar">Realizar Cadastro</button>
                     <button type="reset" class="btn-cadastrar limpar">Limpar dados</button>
+                    <button type="submit" class="btn-cadastrar">Realizar Cadastro</button>
+
                 </form>
             </fieldset>
         </center>

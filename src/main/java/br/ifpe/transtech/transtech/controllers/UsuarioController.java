@@ -94,7 +94,7 @@ public class UsuarioController {
             daoUsu.save(usuario);
         }
         System.out.println(usuario);
-        return "alteracaoSenhaUsuario";
+        return "redirect:/entrarUsu";
     }
 
     @GetMapping("/formUsuario")

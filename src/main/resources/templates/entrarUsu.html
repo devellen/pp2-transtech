@@ -139,6 +139,16 @@
             margin-bottom: -10px;
             font-family: 'K2D', sans-serif;
         }
+
+        #mensagem {
+            font-family: 'K2D', sans-serif;
+            margin-top: 3%;
+        }
+
+        .redefinir {
+            color: #FFAFCC;
+            font-family: 'K2D', sans-serif;
+        }
     </style>
 </head>
 
@@ -156,7 +166,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/listarVagas">
+                            <a href="/listarVagasSemUsuario">
                                 <button id="vagas">Vagas</button>
                             </a>
                         </li>
@@ -186,13 +196,13 @@
                         <button type="submit" class="btn-entrar">Entrar</button>
                     </div>
                     <div id="mensagem" th:text="${msg}"></div><br>
-                    <br>
+    
                     <div>
-                        <a href="/redefinirSenha">Redifinir a senha</a>
+                        <a href="/redefinirSenha" class="redefinir"> Redifinir a senha</a>
                     </div>
                 </form>
 
-                <br><br>
+                
                 <div>
                     <h3>AINDA NÃO TEM CONTA?</h3>
                     <a href="/cadastroUsuario">

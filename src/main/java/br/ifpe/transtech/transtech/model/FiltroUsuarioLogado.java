@@ -17,7 +17,7 @@ public class FiltroUsuarioLogado implements Filter {
 
 	private String[] pathsLiberados = { "/", "/entrarEmp", "/entrarUsu", "/cadastroEmpresa",
 			"/cadastroUsuario", "/salvarUsuario", "/salvarCandidatura", "/efetuarLoginUsuario", "/efetuarLoginEmpresa", "/salvarEmpresa",
-			"/index", "/quemSomos", "/listarVagas", "/alteracaoSenhaUsuario", "/alteracaoSenhaEmpresa", "/sending-email", "/redefinirSenha", "/acessoNegado", "/detalheVaga(.*)", "/pesquisaVaga(.*)", "/h2-console(.*)", "/css/(.*)", "/images/(.*)" };
+			"/index", "/quemSomos", "/listarVagas", "/alteracaoSenhaUsuario", "/alteracaoSenhaEmpresa", "/sending-email", "/redefinirSenha", "/acessoNegado", "/listarVagasSemUsuario", "/detalheVaga(.*)", "/pesquisaVaga(.*)", "/h2-console(.*)", "/css/(.*)", "/images/(.*)" };
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

@@ -139,6 +139,16 @@
             margin-bottom: -10px;
             font-family: 'K2D', sans-serif;
         }
+
+        #mensagem {
+            font-family: 'K2D', sans-serif;
+            margin-top: 3%;
+        }
+
+        .redefinir {
+            color: #A2D2FF;
+            font-family: 'K2D', sans-serif;
+        }
     </style>
 </head>
 
@@ -156,7 +166,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/listarVagas">
+                            <a href="/listarVagasSemUsuario">
                                 <button id="vagas">Vagas</button>
                             </a>
                         </li>
@@ -185,26 +195,16 @@
                     <div>
                         <button type="submit" class="btn-entrar">Entrar</button>
                     </div>
-                    <div id="mensagem" th:text="${msg}"></div><br>
-                    <br>
+                    <div class="alert alert-secondary" id="mensagem" th:text="${msg}"></div><br>
+
                     <div>
-                        <a href="/redefinirSenha">Redifinir a senha</a>
+                        <a href="/redefinirSenha" class="redefinir">Redifinir a senha</a>
                     </div>
                 </form>
-
-                <br>
-                <br><br>
                 <h3>AINDA NÃO TEM CONTA?</h3>
                 <a href="/cadastroEmpresa">
                     <button id="entrar2" class="btn-entrar">Cadastrar</button>
                 </a>
-                </div>
-                <div>
-                    <center>
-                        <img class="img2" src="images/linkedin.png" alt="">
-                        <img class="img2" src="images/instagram.png" alt="">
-                        <img class="img2" src="images/wpp.png" alt="">
-                        <img class="img2" src="images/tt.png" alt="">
                 </div>
             </fieldset>
         </center>

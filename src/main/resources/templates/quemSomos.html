@@ -8,6 +8,9 @@
     <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
     <title>Quem Somos</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
         #tela-principal {
             background-image: linear-gradient(to bottom, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 100%);
             margin: 0;
@@ -114,13 +117,28 @@
             border-radius: 55px;
         }
 
-        .principal2 #cadastro {
+        .principal2 .cadastro {
             color: #F2F2F2;
             border: #FFAFCC;
             background-color: #FFAFCC;
             box-shadow: 0 4px 4px 0 #00000044;
         }
 
+        .principal2 #emp {
+            background-color: #A2D2FF;
+        }
+
+        .text {
+            color: #FFAFCC;
+        }
+        .text1 {
+            color: #FBF0F8;
+        }
+
+        .site {
+            color: #FFAFCC;
+        }
+        
         .img {
             width: 300px;
             height: 200px;
@@ -133,6 +151,7 @@
 
         #article2 {
             margin-top: 10%;
+            margin-left: 5%;
         }
 
         #section3 {
@@ -174,7 +193,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/listarVagas">
+                            <a href="/listarVagasSemUsuario">
                                 <button id="vagas">Vagas</button>
                             </a>
                         </li>
@@ -203,24 +222,23 @@
                 </div>
                 <div class="principal2">
                     <a href="/cadastroUsuario">
-                        <button id="cadastro"> Cadastrar usuário</button>
+                        <button class="cadastro"> Cadastrar usuário</button>
                     </a>
                     <br>
                     <br>
                     <a href="/cadastroEmpresa">
-                        <button id="cadastro"> Cadastrar empresa</button>
+                        <button class="cadastro" id="emp"> Cadastrar empresa</button>
                     </a>
                 </div>
             </div>
         </article>
     </section>
 
-    <section id="section2">
+    <section>
         <article id="article2">
-            <div class="container">
                 <div class="principal1">
 
-                    <div>
+                    <div class="container">
                         <p class="text">90% das pessoas trans<br>
                             vivem da prostituição</p>
                         <img class="grafico" src="images/grafico.png" alt="">
@@ -238,13 +256,36 @@
                             dentre eles, a dificuldade de ingressar no mercado de trabalho.<br>
                             <br>
                             <br>
-                            Saiba mais no site da ANTRA
+                            Saiba mais no site da <a href="https://antrabrasil.org/" target="_blank" class="site">ANTRA</a>.
                         </p>
                     </div>
                 </div>
         </article>
     </section>
 
+    <footer class="rodape">
+        <div class="container">
+            <div>
+                <strong>
+                    <p>Equipe: Alice Domingues, Ellen Paticia, Julio Cesar</p>
+                    <p>Estr. de Bulhões - Bulhões, Jaboatão dos Guararapes - PE, 54080-000</p>
+                    <p>CNPJ: 03.907.333/0001-97</p>
+                    <br>
+                    <p>COPYRIGTH ©℗®™</p>
+                </strong>
+            </div>
+            <div>
+                <div class="images">
+                    <img class="img2" src="images/linkedin.png" alt="">
+                    <img class="img2" src="images/instagram.png" alt="">
+                    <img class="img2" src="images/wpp.png" alt="">
+                    <img class="img2" src="images/tt.png" alt="">
+                </div>
+                <br>
+                <img class="img-bandeira" src="images/bandeira.png" alt="">
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

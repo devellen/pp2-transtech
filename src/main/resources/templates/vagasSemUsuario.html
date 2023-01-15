@@ -133,10 +133,12 @@
 			margin-bottom: 10px;
 		}
 
+
 		.paginacao {
 			margin-top: 2%;
 			
 		}
+		
 		.cor {
 			color: white;
             background-color: #FFAFCC;
@@ -148,7 +150,7 @@
 		.btn-ok {
 			border: none;
 			background-color: #FFAFCC;
-			margin-left: 60%;
+			margin-left: 65%;
 			border-radius: 20%;
 		}
 	</style>
@@ -162,10 +164,10 @@
 				<div class="nav-container">
 					<a> <img id="logo" src="images/logo1.png" alt="">
 					<ul>
-						<li><a href="/homeUsuario">
+						<li><a href="/index">
 								<button class="home">Home</button>
 							</a></li>
-						<li><a href="/listarVagas">
+						<li><a href="/listarVagasSemUsuario">
 								<button class="home" id="vagas">Vagas</button>
 							</a></li>
 						<li><a href="/quemSomos">
@@ -195,8 +197,6 @@
 					<h6 class="card-subtitle mb-2 text-muted" th:text="${vaga.cidade}"></h6>
 					<p class="card-text" th:text="${vaga.descricaoLimitada}"></p>
 					<a th:href="@{/detalheVaga(codigo=${vaga.codVaga})}" class="btn btn-outline-light botao">Mais detalhes</a>
-					<button th:if="${vaga.vagaPreenchida}" class="btn-ok"><i class="bi bi-check"></i></button>
-
 				</div>
 			</div>
 		</div>

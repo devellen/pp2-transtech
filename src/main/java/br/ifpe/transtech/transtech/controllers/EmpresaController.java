@@ -88,7 +88,7 @@ public class EmpresaController {
             daoEmp.save(empresa);
         }
         System.out.println(empresa);
-        return "index";
+        return "redirect:/entrarEmp";
     }
 
     @GetMapping("/homeEmpresa")

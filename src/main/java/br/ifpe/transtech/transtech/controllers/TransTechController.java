@@ -62,6 +62,21 @@ public class TransTechController {
         return "vagas";
     }
 
+    @GetMapping("/listarVagasSemUsuario")
+        public String listarVagasSemUsuario(@DefaultValue("1") Integer page, Model model, HttpSession session) {
+            if (page == null) {
+                page = 0;
+            }
+    
+            Page<Vaga> vagas = daoVaga.findAll(PageRequest.of(page, 6));
+            Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+            for (Vaga x : vagas) {
+                x.setVagaPreenchida(this.daoCandidatura.existsByVagaAndUsuario(x, usuario));
+            }
+            model.addAttribute("lista", vagas);
+            return "vagasSemUsuario";
+        }
+
     @PostMapping("/salvarVaga")
     public String salvarVaga(Vaga vaga, HttpSession session) {
         Object email;

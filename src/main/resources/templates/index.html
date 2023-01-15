@@ -7,9 +7,9 @@
     <link rel="shortcut icon" href="/images/logo-ico.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" src="../static/css/pagTeste.css">
     <style>
-    	@import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-        
+
         #tela-principal {
             background-image: linear-gradient(to bottom, #FBF0F8 20%, #A2D2FF 44.27%, #A2D2FF 50%, #FBF0F8 100%);
             margin: 0;
@@ -88,6 +88,7 @@
         .nav-container li button:hover {
             color: #A2D2FF;
         }
+
         /*-----------------------------------------------------------*/
 
         .logo2 {
@@ -153,11 +154,16 @@
             padding: 12px;
         }
 
+        .images {
+            margin-left: 10%;
+        }
+
         .img-bandeira {
             margin-bottom: 5%;
-            margin-left: 50%;
+            margin-left: 10%;
             width: 90%;
         }
+
     </style>
     <title>Trans Tech</title>
 
@@ -179,7 +185,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/listarVagas">
+                            <a href="/listarVagasSemUsuario">
                                 <button id="vagas">Vagas</button>
                             </a>
                         </li>
@@ -236,14 +242,14 @@
                 </strong>
             </div>
             <div>
-                <center>
+                <div class="images">
                     <img class="img2" src="images/linkedin.png" alt="">
                     <img class="img2" src="images/instagram.png" alt="">
                     <img class="img2" src="images/wpp.png" alt="">
                     <img class="img2" src="images/tt.png" alt="">
-                    <center>
-                        <br>
-                        <img class="img-bandeira" src="images/bandeira.png" alt="">
+                </div>
+                <br>
+                <img class="img-bandeira" src="images/bandeira.png" alt="">
             </div>
         </div>
     </footer>
